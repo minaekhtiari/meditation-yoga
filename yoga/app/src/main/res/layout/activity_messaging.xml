@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fraqment_faq_relative_backOfAll"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    >
+
+    <FrameLayout
+        android:id="@+id/fraqment_messaging_toolbarFrame"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fragment_messaging_frameBase"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fraqment_messaging_toolbarFrame"
+        ></FrameLayout>
+
+
+</RelativeLayout>

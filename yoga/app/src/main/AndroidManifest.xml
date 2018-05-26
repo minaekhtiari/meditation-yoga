@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="apps.hillavas.com.yoga">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:name=".FontSetterOnApllication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/titr"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".HOME"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MessagingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutUs"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CheckBalanceActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Buesy"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ArticleTextView"
+            android:label="@string/title_activity_article_text_view"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CommonQuestionOne"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Subjects"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Signs"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ContentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainOfPagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".FirstContentActivity" />
+        <activity android:name=".ConsultantActivity" />
+        <activity android:name=".ChangeStateActivity" />
+        <activity android:name=".NewsActivity" />
+        <activity android:name=".Insert_Info" />
+        <activity
+            android:name=".ProfileInfo_Activity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".Yoga_contents_all_for_categoryid" />
+        <activity android:name=".TrainingActivity"></activity>
+    </application>
+
+</manifest>

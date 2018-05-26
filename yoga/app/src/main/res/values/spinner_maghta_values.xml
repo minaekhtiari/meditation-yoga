@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_maghta">
+        <item><font size="12">ابتدایی</font></item>
+        <item><font size="12">دبیرستان</font></item>
+        <item><font size="12">دانشگاه</font></item>
+    </string-array>
+</resources>

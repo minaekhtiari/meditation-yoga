@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fragment_home_page_sexualHealth_fabViewChanger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/menu_icon_90"
+        android:tint="@color/white"
+        android:background="@color/blue"
+        android:elevation="6dp"
+        app:borderWidth="0dp"
+        android:visibility="invisible"
+        />
+
+
+    <FrameLayout
+        android:id="@+id/fragment_home_page_sexual_frame0"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        >
+        <include layout="@layout/fragment_buesy_page"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_home_page_sexual_frame1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:background="@color/white"
+        >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_home_page_sexualHealth_page1_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </android.support.v7.widget.RecyclerView>
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/fragment_home_page_sexual_frame2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/white"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/fragment_home_page_sexual_scrollAll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            >
+
+            <RelativeLayout
+                android:id="@+id/fragment_home_page_sexual_frame2_relative"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:id="@+id/fragment_home_page_sexual_frame2_text_newest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/newest"
+                    android:textColor="@color/gray_700"
+                    android:layout_alignParentRight="true"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginRight="8dp"
+                    />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/fragment_home_page_sexual_frame2_recycler3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fragment_home_page_sexual_frame2_text_newest"
+                    android:layout_centerInParent="true"
+                    android:padding="2dp"
+                    ></android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/fragment_home_page_sexual_frame2_text_mostFavourites"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/favourites"
+                    android:textColor="@color/gray_700"
+                    android:layout_alignParentRight="true"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginRight="8dp"
+                    android:layout_below="@+id/fragment_home_page_sexual_frame2_recycler3"
+                    />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/fragment_home_page_sexual_frame2_recycler2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fragment_home_page_sexual_frame2_text_mostFavourites"
+                    android:layout_centerInParent="true"
+                    android:padding="2dp"
+                    ></android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/fragment_home_page_sexual_frame2_text_mostViewd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/all_views_item"
+                    android:textColor="@color/gray_700"
+                    android:layout_alignParentRight="true"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginRight="8dp"
+                    android:layout_below="@+id/fragment_home_page_sexual_frame2_recycler2"
+                    />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/fragment_home_page_sexual_frame2_recycler1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fragment_home_page_sexual_frame2_text_mostViewd"
+                    android:layout_centerInParent="true"
+                    android:padding="2dp"
+                    ></android.support.v7.widget.RecyclerView>
+
+
+
+
+            </RelativeLayout>
+        </ScrollView>
+        </RelativeLayout>
+    </FrameLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp"
+    android:layout_gravity="center"
+    android:layout_margin="2dp"
+    >
+
+    <RelativeLayout
+        android:id="@+id/card_fragment_relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_imageFull"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:scaleType="fitXY"
+        android:src="@color/gray"
+        />
+        <ImageView
+            android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_imageBackText"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/black"
+            />
+
+        <ImageView
+            android:id="@+id/fragment_home_page_sexualHealth_recycler_content_imageLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginBottom="152dp"
+            android:layout_alignParentBottom="true"
+            />
+
+        <TextView
+            android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_txtDateDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            />
+        <TextView
+            android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_txtDateMounth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="اردیبهشت"
+            android:textColor="@color/white"
+            android:layout_marginRight="2dp"
+            android:textSize="10sp"
+            android:layout_toLeftOf="@+id/fragment_home_page_sexualHealth_recycler_conent_txtDateDay"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            />
+        <TextView
+            android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_txtDateYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1395"
+            android:textColor="@color/white"
+            android:layout_marginRight="2dp"
+            android:textSize="10sp"
+            android:layout_toLeftOf="@+id/fragment_home_page_sexualHealth_recycler_conent_txtDateMounth"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            />
+
+        <TextView
+            android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_txtText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="11dp"
+            android:textSize="14sp"
+            android:gravity="right"
+            android:text="از هر فرصتی برای به آغوش کشیدن یکدیگر استفاده  کنید"
+            android:lineSpacingExtra="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/white"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="110dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+           >
+            <ImageView
+                android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_movieIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/video_type"
+                android:tint="@color/white"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                />
+            <TextView
+                android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_txtMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ویدئو"
+                android:layout_marginRight="8dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf = "@+id/fragment_home_page_sexualHealth_recycler_conent_movieIcon"
+                android:textColor="@color/white"
+                />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            >
+
+            <ImageView
+                android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_LikeIcon"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/liked"
+                android:tint="@color/white"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_textLikeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="356"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/fragment_home_page_sexualHealth_recycler_conent_LikeIcon"
+                android:layout_marginRight="2dp"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:paddingTop="5dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:textColor="@color/white"
+                />
+
+            <ImageView
+                android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_viewIcon"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/view"
+                android:tint="@color/white"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf = "@+id/fragment_home_page_sexualHealth_recycler_conent_textLikeCount"
+                android:layout_marginRight="16dp"
+                />
+            <TextView
+                android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_textViewCount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="419"
+                android:layout_marginRight="2dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/fragment_home_page_sexualHealth_recycler_conent_viewIcon"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:paddingTop="5dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:textColor="@color/white"
+                />
+
+        </RelativeLayout>
+
+        </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

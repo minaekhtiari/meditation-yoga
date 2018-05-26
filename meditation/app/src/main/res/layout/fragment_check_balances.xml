@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradiant3">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/relative1"
+                android:layout_width="match_parent"
+                android:layout_height="440dp"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+                <TextView
+                    android:id="@+id/textTitr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="آمار و اطلاعات"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/relativeBack"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    >
+                    <ImageView
+                        android:id="@+id/toolbar_home_imageBack"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/back"
+                        android:tint="@color/white"
+                        />
+                </RelativeLayout>
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/fragment_check_balance_profile_image"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:border_color="@color/white"
+                    app:border_width="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@+id/cardview"
+                    android:layout_below="@+id/textTitr"
+                    android:layout_marginTop="64dp"
+                    android:src="@drawable/person_man"
+                    />
+
+                <EditText
+                    android:id="@+id/fragment_check_balance_textName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="علیرضا نعیمی مهر"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_below="@+id/fragment_check_balance_profile_image"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/transparent"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/linearWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fragment_check_balance_textName"
+                    android:layout_marginTop="16dp"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    >
+
+                    <EditText
+                        android:id="@+id/fragment_check_balance_textWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="88"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:background="@android:color/transparent"
+                        android:maxLines="1"
+                        android:maxLength="3"
+                        android:inputType="number"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" kg "
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/fragment_check_balance_ivPlus"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_below="@+id/fragment_check_balance_textName"
+                    android:layout_marginTop="16dp"
+                    android:layout_toRightOf="@+id/linearWeight"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/plus"
+                    />
+
+                <ImageView
+                    android:id="@+id/fragment_check_balance_ivMinus"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_below="@+id/fragment_check_balance_textName"
+                    android:layout_marginTop="16dp"
+                    android:layout_toLeftOf="@+id/linearWeight"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/minus"
+
+                    />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="8dp"
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/gradiant"
+                        />
+                    <RelativeLayout
+                        android:id="@+id/linearMiddle"
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:paddingTop="8dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:id="@+id/fragment_check_balances_calories_today"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="8dp"
+                            />
+
+                        <ProgressBar
+                            android:id="@+id/fragment_check_balances_progressCallory"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:visibility="invisible"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:text="کالری مصرفی امروز"
+                            android:gravity="center"
+                            android:textSize="10sp"
+                            android:textColor="@color/gray_200"
+                            android:layout_below="@+id/fragment_check_balances_calories_today"
+                            />
+                        <ImageView
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_alignParentStart="true"
+                            android:background="@color/blue"
+                            />
+                        <ImageView
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_alignParentEnd="true"
+                            android:background="@color/blue"
+                            />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/linearRight"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@id/linearMiddle"
+                        android:paddingTop="8dp"
+                        android:gravity="center"
+                        >
+                        <ProgressBar
+                            android:id="@+id/fragment_check_balances_progressExamTime"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:visibility="invisible"
+                            />
+
+                        <TextView
+                            android:id="@+id/fragment_check_balances_ExamTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:text="زمان تمرین امروز"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            android:textColor="@color/gray_200"
+                            android:layout_below="@+id/fragment_check_balances_ExamTime"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/linearLeft"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        android:layout_toLeftOf="@id/linearMiddle"
+                        android:paddingTop="8dp"
+                        android:gravity="center"
+                        >
+                        <ProgressBar
+                            android:id="@+id/fragment_check_balances_progressTotalScore"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:visibility="invisible"
+                            />
+
+                        <TextView
+                            android:id="@+id/fragment_check_balances_scoreTitr"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:text="امتیاز کل"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            android:textColor="@color/gray_200"
+                            android:layout_below="@+id/fragment_check_balances_scoreTitr"
+                            />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relative2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/relative1"
+                android:paddingTop="16dp"
+                >
+
+                <TextView
+                    android:id="@+id/textChartTitr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="نمودار ماه گذشته"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <ImageView
+                    android:id="@+id/textChartNext"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_toRightOf="@+id/textChartTitr"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/next"
+                    android:visibility="invisible"
+                    />
+
+                <ImageView
+                    android:id="@+id/textChartPrev"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_toLeftOf="@+id/textChartTitr"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/prev"
+                    android:visibility="invisible"
+                    />
+
+                <RelativeLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/textChartTitr"
+                    android:layout_marginTop="24dp"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:layout_margin="16dp"
+                    >
+                    <com.robinhood.spark.SparkView
+                        android:id="@+id/fragment_check_balance_sparkview"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        app:spark_animateChanges="true"
+                        />
+
+                    <ProgressBar
+                        android:id="@+id/fragment_check_balance_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:visibility="invisible"
+                        />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

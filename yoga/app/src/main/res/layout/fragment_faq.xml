@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fraqment_faq_relative_backOfAll"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    >
+
+    <RelativeLayout
+        android:id="@+id/fraqment_faq_searchBox"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:gravity="center"
+        android:background="@drawable/curve_bg_gray"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="60dp"
+        >
+
+        <EditText
+            android:id="@+id/fragment_login_EditMobile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/searchTitleHint"
+            android:inputType="text"
+            android:background="@android:color/transparent"
+            android:layout_weight="8"
+            android:gravity="start|center"
+            android:maxLength="11"
+            android:paddingTop="2dp"
+            />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentLeft="true"
+            />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/fraqment_faq_toolbarFrame"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+    </FrameLayout>
+
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fraqment_faq_recyclerQuestions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fraqment_faq_toolbarFrame"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="?attr/actionBarSize"
+        android:paddingTop="60dp"
+        ></android.support.v7.widget.RecyclerView>
+
+
+
+</RelativeLayout>

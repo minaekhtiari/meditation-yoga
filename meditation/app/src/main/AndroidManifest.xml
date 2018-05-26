@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="apps.hillavas.com.meditation">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:name="apps.hillavas.com.meditation.FontSetterOnApllication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/titr"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="apps.hillavas.com.meditation.HOME"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="apps.hillavas.com.meditation.MessagingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="apps.hillavas.com.meditation.AboutUs"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="apps.hillavas.com.meditation.CheckBalanceActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="apps.hillavas.com.meditation.Buesy"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="apps.hillavas.com.meditation.ArticleTextView"
+            android:label="@string/title_activity_article_text_view"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="apps.hillavas.com.meditation.CommonQuestionOne"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="apps.hillavas.com.meditation.Subjects"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="apps.hillavas.com.meditation.Signs"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="apps.hillavas.com.meditation.MenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="apps.hillavas.com.meditation.ContentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="apps.hillavas.com.meditation.MainOfPagerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="apps.hillavas.com.meditation.DetailActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="apps.hillavas.com.meditation.FirstContentActivity" />
+        <activity android:name="apps.hillavas.com.meditation.ConsultantActivity" />
+        <activity android:name="apps.hillavas.com.meditation.ChangeStateActivity" />
+        <activity android:name="apps.hillavas.com.meditation.NewsActivity" />
+        <activity android:name="apps.hillavas.com.meditation.Insert_Info" />
+        <activity
+            android:name="apps.hillavas.com.meditation.ProfileInfo_Activity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="apps.hillavas.com.meditation.Yoga_contents_all_for_categoryid" />
+        <activity android:name="apps.hillavas.com.meditation.TrainingActivity" />
+        <activity android:name="apps.hillavas.com.meditation.AddCreditActivity"></activity>
+    </application>
+
+</manifest>

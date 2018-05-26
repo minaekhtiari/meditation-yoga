@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include layout="@layout/toolbar_home"
+        android:id="@+id/fargment_home_toolbar"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/fargment_home_toolbar"
+        android:layout_marginTop="32dp"
+        >
+
+        <TextView
+            android:id="@+id/textManual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="همراه اولی عزیز در این بخش \n شما می توانید ، به صورت مستقیم و \n  تلفنی با مشاور صحبت کنید"
+            android:textColor="@color/gray_500"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:lineSpacingExtra="15dp"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fragment_home_callWithConsuler_fabCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textManual"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:src="@android:drawable/ic_menu_call"
+            app:fabSize="normal"
+            android:backgroundTint="@color/green"
+            app:borderWidth="0dp"
+            />
+
+        <TextView
+            android:id="@+id/textManual2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="در صورتی که همراه اولی نیستید \n ، لطفا با خط ثابت با شماره \n 9099071611 \n تماس بگیرید"
+            android:textColor="@color/green"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:padding="32dp"
+            android:lineSpacingExtra="10dp"
+            android:layout_below="@+id/fragment_home_callWithConsuler_fabCall"
+            android:layout_marginTop="32dp"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

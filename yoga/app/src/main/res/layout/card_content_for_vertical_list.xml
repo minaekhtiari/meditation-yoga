@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    card_view:cardCornerRadius="4dp">
+
+    <RelativeLayout
+        android:id="@+id/card_maghta_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+
+        <ImageView
+            android:id="@+id/card_content_vertical_image"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:scaleType="fitXY"
+            />
+        <ImageView
+            android:id="@+id/card_content_vertical_imageTopBorder"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/topborder"
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/play2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="105dp"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp">
+            <ImageView
+                android:id="@+id/card_content_vertical_image_lock"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="16dp"
+                android:src="@drawable/lock3"
+                android:elevation="40dp"
+                android:visibility="invisible"
+
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/card_content_vertical_textTitr"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="دانا اوسانا"
+            android:gravity="center"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:paddingTop="2dp"
+            android:textSize="14sp"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/card_content_vertical_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_content_vertical_image"
+            android:layout_marginTop="16dp"
+            android:gravity="center|start"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textSize="10sp"
+            android:lineSpacingExtra="8dp"
+            android:textColor="@color/black"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/card_content_vertical_text"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:id="@+id/card_content_textScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_toLeftOf="@+id/imageScore"
+                    android:text="64"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:paddingTop="8dp"
+                    android:textColor="@color/red"
+                    />
+                <ImageView
+                    android:id="@+id/imageScore"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/cap"
+                    android:layout_toLeftOf="@+id/card_content_textPrice"
+                    android:layout_marginRight="8dp"
+                    android:tint="@color/red"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start"
+                android:layout_weight="0"
+                >
+
+                <TextView
+                    android:id="@+id/card_content_textPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_toLeftOf="@+id/imagePrice"
+                    android:text="4000"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/red"
+                    android:paddingTop="8dp"
+                    />
+                <ImageView
+                    android:id="@+id/imagePrice"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/bag"
+                    android:layout_toLeftOf="@+id/card_content_textCallory"
+                    android:layout_marginRight="8dp"
+                    android:tint="@color/red"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:id="@+id/card_content_textCallory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_toLeftOf="@+id/imageCallory"
+                    android:text="452"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/red"
+                    android:paddingTop="8dp"
+                    />
+                <ImageView
+                    android:id="@+id/imageCallory"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/sib"
+                    android:layout_toLeftOf="@+id/card_content_textTime"
+                    android:layout_marginRight="8dp"
+                    android:tint="@color/red"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:id="@+id/card_content_textTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_toLeftOf="@+id/imageTime"
+                    android:text="2"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/red"
+                    android:paddingTop="8dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/imageTime"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/clock"
+                    android:tint="@color/red"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

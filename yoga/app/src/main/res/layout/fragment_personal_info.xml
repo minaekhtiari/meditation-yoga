@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant2"
+    >
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relativeTop"
+        android:scrollbars="none"
+        >
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:id="@+id/fragment_personalInfo_relativeHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradiant3"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/person_man"
+                    app:border_color="@color/white"
+                    app:border_width="1dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@+id/cardview"
+                    android:layout_marginTop="32dp"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/linear1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fragment_personalInfo_text_name"
+                    android:layout_marginTop="8dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="وزن : "
+                        android:layout_toRightOf="@+id/fragment_personalInfo_text_weight"
+                        android:textColor="@color/gray_200"
+                        />
+
+                    <TextView
+                        android:id="@+id/fragment_personalInfo_text_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" کیلوگرم "
+                        android:layout_toLeftOf="@+id/fragment_personalInfo_text_weight"
+                        android:textColor="@color/gray_200"
+                        />
+
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/fragment_personalInfo_text_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/profile_image"
+                    android:layout_marginTop="16dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    />
+
+
+                <ImageView
+                    android:id="@+id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/gradiant"
+                    android:layout_below="@+id/linear1"
+                    android:layout_marginTop="32dp"
+                    />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/fragment_personalInfo_text_home"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="12sp"
+                android:layout_below="@+id/fragment_personalInfo_relativeHeader"
+                android:textColor="@color/white"
+                android:text="خانه"
+                android:gravity="center|start"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                />
+            <ImageView
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gradiant"
+                android:layout_below="@+id/fragment_personalInfo_text_home"
+                />
+            <TextView
+                android:id="@+id/fragment_personalInfo_text_amar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="12sp"
+                android:layout_below="@+id/line2"
+                android:textColor="@color/white"
+                android:text="آمار و اطلاعات"
+                android:gravity="center|start"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                />
+
+            <ImageView
+                android:id="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gradiant"
+                android:layout_below="@+id/fragment_personalInfo_text_amar"
+                />
+            <TextView
+                android:id="@+id/fragment_personalInfo_text_harakatAsli"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="12sp"
+                android:layout_below="@+id/line3"
+                android:textColor="@color/white"
+                android:text="آموزش حرکات اصلی"
+                android:gravity="center|start"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                />
+
+            <ImageView
+                android:id="@+id/line4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gradiant"
+                android:layout_below="@+id/fragment_personalInfo_text_harakatAsli"
+                />
+            <TextView
+                android:id="@+id/fragment_personalInfo_text_app"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="12sp"
+                android:layout_below="@+id/line4"
+                android:textColor="@color/white"
+                android:text="برنامه پیشنهادی"
+                android:gravity="center|start"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                />
+
+            <ImageView
+                android:id="@+id/line5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gradiant"
+                android:layout_below="@+id/fragment_personalInfo_text_app"
+                />
+            <TextView
+                android:id="@+id/fragment_personalInfo_text_exit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="12sp"
+                android:layout_below="@+id/line5"
+                android:textColor="@color/white"
+                android:text="خروج"
+                android:gravity="center|start"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                />
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,135 @@
+<resources>
+    <string name="app_name">Sexual</string>
+    <string name="titr">یوگا</string>
+    <string name="titrEnglish">HamrahDars</string>
+    <string name="insertPasswordTitr">رمز عبور را وارد کنید</string>
+    <string name="enterToApp">ورود به برنامه</string>
+    <string name="login">ورود</string>
+    <string name="register">عضویت</string>
+    <string name="accept">ثبت نام</string>
+    <string name="sex">جنیست</string>
+    <string name="marriedState">وضعیت تاهل</string>
+    <string name="requestCode">کد فعال سازی</string>
+    <string name="realRequestCode">اعتبار سنجی کد</string>
+    <string name="dontGiveRequestCode">کد فعال سازی را دریافت نکردید؟</string>
+    <string name="giveRequestCode">درخواست کد جدید کنید</string>
+    <string name="forgottenPassword">رمز عبور را فراموش کرده اید؟</string>
+    <string name="birthDate">تاریخ تولد</string>
+    <string name="userLicenseAcception">با ثبت نام در اپلیکیشن همراه درس شما، شرابط و قوانین را میپذیرید</string>
+    <string name="requestCodeRecevied">کد فعال سازی ارسال شده توسط \n  پیامک را در کادر زیر وارد کنید</string>
+    <string name="sexualHealth">همراه درس</string>
+    <string name="subjects">موضوعات</string>
+    <string name="sexualQuestions">سوالات همراه درس</string>
+    <string name="signs">نشانه ها</string>
+    <string name="questions">سوالات</string>
+    <string name="commonQuestion">سوالات متداول</string>
+    <string name="toolbar_title_FAQ">سوالات متداول</string>
+    <string name="all">همه</string>
+    <string name="newest">جدیدترین ها</string>
+    <string name="rank">پر بازدیدترین ها</string>
+    <string name="woman">دختر</string>
+    <string name="man">پسر</string>
+    <string name="marriage">متاهل</string>
+    <string name="single">مجرد</string>
+    <string name="acceptLicense1"> با ثبت نام دراپلیکیشن همراه درس ، شما</string>
+    <string name="acceptLicense2">شرایط و قوانین </string>
+    <string name="acceptLicense3">  را میپذیرید</string>
+    <string name="hint_mobile"><font color="#ccc" size="12">شماره موبایل</font></string>
+    <string name="hint_mobile2"><font color="#ccc" size="12">شماره همراه خود را وارد کنید</font></string>
+    <string name="hint_nameFamily"><font color="#607d8b" size="12">نام و نام خانوادگی</font></string>
+    <string name="hint_weight"><font color="#ccc" size="12">وزن</font></string>
+    <string name="hint_add_photo"><font color="#ccc" size="12">اضافه کردن \n تصویر پروفایل</font></string>
+    <string name="hint_weight_kilo"><font color="#607d8b" size="12">وزن (کیلوگرم)</font></string>
+    <string name="hint_addAcount"><font color="#607d8b" size="12">ایجاد اکانت</font></string>
+    <string name="hint_requestCode"><font color="#ccc" size="12">کد دریافتی</font></string>
+    <string name="hint_password"><font color="#607d8b" size="12">رمز عبور</font></string>
+    <string name="hint_bouth"><font size="9">خریداری\n  شده</font></string>
+    <string name="hint_password2"><font size="12">تکرار رمز عبور</font></string>
+    <string name="hint_sex"><font color="#607d8b" size="12">جنسیت</font></string>
+    <string name="hint_birthDate"><font size="12">تاریخ تولد</font></string>
+    <string name="hint_marriage_status"><font size="12">وضعبت تاهل</font></string>
+    <string name="readMore">بیشتر بخوانید ...</string>
+    <string name="hint_commonQuestionSearch"><font size="12">جستجو در سوالات متداول</font></string>
+    <string name="searchTitleHint"><font size="12"> عبارت مورد جستجو ...</font></string>
+    <string name="favourites">محبوب ترین ها</string>
+    <string name="firstPage">صفحه اول</string>
+    <string name="messages">پیام ها</string>
+    <string name="editPersonalInfo">ویرایش اطلاعات کاربری</string>
+    <string name="setPasskey">تعیین رمز ورود اولیه</string>
+    <string name="exit">خروج</string>
+    <string name="aboutUs">درباره ما</string>
+    <string name="answer_Question">پاسخ / سوال</string>
+    <string name="answer">پاسخ</string>
+    <string name="answers">پاسخ ها : </string>
+    <string name="question">سوال : </string>
+    <string name="body">متن : </string>
+
+    <string name="voiceRecordingManual">در این بخش سوال خود را به صورت صوتی برای
+کارشناسان ما ارسال کنید تا در اسرع وقت، پاسخ آن
+به صورت خصوصی برای شما ارسال شود
+</string>
+    <string name="messageNewManual">در این بخش شما می توانید سوال خود را به صورت
+متن یا صدای ضبط شده برای کارشناسان ما ارسال کنید
+پاسخ کارشناس مربوطه به صورت خصوصی برای شما
+ ارسال شود
+</string>
+    <string name="send">ارسال</string>
+    <string name="subject">عنوان : </string>
+    <string name="description">توضیحات : </string>
+    <string name="sendMessage">ارسال پیام</string>
+    <string name="noAnswer">هیچ پاسخی برای این پیام وجود ندارد</string>
+    <string name="areYouSureSendingMessage">آیا از ارسال این پیام اطمینان دارید؟</string>
+    <string name="areYouSureEditAccept">آیا از ویرایش اطلاعات اطمینان دارید؟</string>
+    <string name="yesSending">بله،ارسال شود </string>
+    <string name="noBack"> خیر،بازگشت </string>
+    <string name="emptyTitrAndBody">لطفا موضوع و متن پیام را وارد نمائید</string>
+    <string name="emptyTitr">لطفا موضوع را وارد نمائید</string>
+    <string name="emptyBody">لطفا متن پیام را وارد نمائید</string>
+    <string name="registeration">ثبت نام</string>
+    <string name="messageBox">صندوق پیام</string>
+    <string name="forRecordingAudioClickThis">برای ضبط صدا بر روی کلید زیر اشاره نمائید</string>
+    <string name="errorMobileNumber">شماره موبایل اشتباه است</string>
+    <string name="errorNameOrFamily">نام و نام خانوادگی اشتباه است</string>
+    <string name="errorPassword">کلمه عبور اشتباه است</string>
+    <string name="errorMobileNumberAndPassword">شماره موبایل و کلمه عبور اشتباه است</string>
+    <string name="someOfRecordingTime">مدت زمان ضبط</string>
+    <string name="audio">صوت</string>
+    <string name="video">ویدئو</string>
+    <string name="voiceMessage">پیام صوتی</string>
+    <string name="dosntHave">ندارد</string>
+    <string name="errorInsertSubject">لطفا عنوان پیام را وارد کنید</string>
+    <string name="areYouSureYouWantRecordNewSound">آیا می خواهید فایل جدیدی ضبط نمائید</string>
+    <string name="favourite_items">محبوب ترین ها</string>
+    <string name="all_views_item">پربازدیدترین ها</string>
+    <string name="title_activity_article_text_view">ArticleTextView</string>
+    <string name="title_activity_common_question_one_question">CommonQuestionOneQuestion</string>
+    <string name="texti">متنی</string>
+    <string name="audioi">صوتی</string>
+    <string name="videoi">تصویری</string>
+    <string name="girls">دخترها</string>
+    <string name="boys">پسرها</string>
+    <string name="youRegisterBefore">شما قبلا ثبت نام کرده اید</string>
+    <string name="delete">حذف</string>
+    <string name="notSoundRecorded">صدای ضبط شده ای برای ارسال وجود ندارد</string>
+    <string name="noConnection">اتصال به اینترنت برقرار نیست!</string>
+    <string name="birthDateInsertError">تاریخ تولد وارد شده اشتباه است</string>
+    <string name="incorrectCode">کد وارد شده اشتباه است</string>
+    <string name="learningVideos">ویدئوهای آموزشی</string>
+    <string name="phoneConsultant">مشاوره تلفنی</string>
+    <string name="news">اخبار و مقالات</string>
+    <string name="consultantVideos">ویدئوهای مشاوره ای</string>
+    <string name="maintainance">پشتیبانی</string>
+    <string name="hint_nameAndFamily"><font color="#607d8b" size="12">نام و نام خانوادگی</font></string>
+    <string name="hint_maghta"><font size="12">مقطع</font></string>
+    <string name="hint_payeh"><font size="12">پایه</font></string>
+    <string name="errorName">نام و نام خانوادگی را پر کنید</string>
+    <string name="areYouSureYouWantBuyThisContent">آیا تمایل به خرید این محصول دارید ؟ </string>
+    <string name="hint_name"><font color="#607d8b" size="12">نام</font></string>
+    <string name="hint_family"><font color="#607d8b" size="12">نام خانوادگی</font></string>
+    <string name="serviceIsOf">سرویس  : <font color="#000000" size="14">غیر فعال</font></string>
+    <string name="showCase_details"><font color="#607d8b" size="6">"برای مشاهده جزئیات اشاره کنید و برای مشاهده ویدئوی آموزشی مجددا اشاره نمائید"</font></string>
+    <string name="showCase_messaging"><font color="#607d8b" size="6">"برای ارسال پیام خصوصی به اساتید از این گزینه استفاده نمائید"</font></string>
+    <string name="showCase_filter"><font color="#607d8b" size="6">"برای تغییر مقطع تحصیلی و دروس بر روی کلید فیلتر کلیک نمائید"</font></string>
+    <string name="next"><font size="10">بعدی</font></string>
+</resources>
+

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp"
+            android:padding="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_white_shadow_gray"
+            >
+            <TextView
+                android:id="@+id/fragment_messaging_voice_new_text_subject"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/subject"
+                android:textColor="@color/gray_500"
+                android:textSize="14sp"
+                android:gravity="center"
+
+                />
+            <EditText
+                android:id="@+id/fragment_messaging_voice_new_edit_subject"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_toLeftOf="@+id/fragment_messaging_voice_new_text_subject"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="start|center"
+                android:textSize="14sp"
+                android:background="@android:color/transparent"
+                android:maxLength="25"
+                />
+            <TextView
+                android:id="@+id/textBack"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_200"
+                android:layout_below="@+id/fragment_messaging_voice_new_edit_subject"
+                />
+            <TextView
+                android:id="@+id/fragment_messaging_text_new_text_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="متن : "
+                android:textColor="@color/gray_500"
+                android:textSize="14sp"
+                android:layout_below="@+id/textBack"
+                android:layout_marginTop="16dp"
+                />
+            <EditText
+                android:id="@+id/fragment_messaging_text_new_edit_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/textBack"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="80dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@+id/fragment_messaging_text_new_text_body"
+                android:gravity="start"
+                android:textSize="14sp"
+                android:background="@android:color/transparent"
+                android:maxLength="500"
+                android:lineSpacingExtra="10dp"
+                />
+
+        </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/relativeTimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_alignParentEnd="true"
+            android:padding="8dp"
+            >
+            <TextView
+                android:id="@+id/fragment_messaging_text_new_text_textLengthMAX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/gray_700"
+                android:text="500"
+                />
+            <TextView
+                android:id="@+id/fragment_messaging_voice_text_recordedTimeDot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/gray_700"
+                android:text="/"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/fragment_messaging_text_new_text_textLengthMAX"/>
+            />
+
+            <TextView
+                android:id="@+id/fragment_messaging_text_new_text_textLength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/gray_700"
+                android:text="0"
+                android:layout_toLeftOf="@+id/fragment_messaging_voice_text_recordedTimeDot"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/fragment_messaging_text_new_btn_send"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:text="@string/send"
+        android:background="@color/bottomBarColor"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

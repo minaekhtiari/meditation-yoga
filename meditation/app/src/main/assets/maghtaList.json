@@ -1,0 +1,86 @@
+{
+  "maghtaa":
+  [
+  {
+    "CrossSection": "ابتدایی",
+    "Foundations": [
+      {
+        "LevelId": 1,
+        "Foundation": "اول"
+      },
+      {
+        "LevelId": 2,
+        "Foundation": "دوم"
+      },
+      {
+        "LevelId": 3,
+        "Foundation": "سوم"
+      },
+      {
+        "LevelId": 4,
+        "Foundation": "چهارم"
+      },
+      {
+        "LevelId": 5,
+        "Foundation": "پنجم"
+      },
+      {
+        "LevelId": 6,
+        "Foundation": "ششم"
+      }
+    ]
+  },
+  {
+    "CrossSection": "متوسطه اول",
+    "Foundations": [
+      {
+        "LevelId": 7,
+        "Foundation": "هفتم"
+      },
+      {
+        "LevelId": 8,
+        "Foundation": "هشتم"
+      },
+      {
+        "LevelId": 9,
+        "Foundation": "نهم"
+      }
+    ]
+  },
+  {
+    "CrossSection": "متوسطه دوم",
+    "Foundations": [
+      {
+        "LevelId": 10,
+        "Foundation": "دهم"
+      },
+      {
+        "LevelId": 11,
+        "Foundation": "یازدهم"
+      },
+      {
+        "LevelId": 12,
+        "Foundation": "دوازدهم"
+      }
+    ]
+  },
+  {
+    "CrossSection": "پیش دانشگاهی",
+    "Foundations": [
+      {
+        "LevelId": 13,
+        "Foundation": "پیش دانشگاهی"
+      }
+    ]
+  },
+  {
+    "CrossSection": "کنکور",
+    "Foundations": [
+      {
+        "LevelId": 14,
+        "Foundation": "کنکور"
+      }
+    ]
+  }
+]
+}

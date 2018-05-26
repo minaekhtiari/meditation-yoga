@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f76f64</color>
+    <color name="colorPrimaryDark">#fe5295</color>
+    <color name="colorAccent2">#fe5295</color>
+    <color name="colorAccent">#132e39</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="bottomBarColor">#132e39</color>
+    <color name="grayDark">#AAAAAA</color>
+    <color name="blue">#ffffff</color>
+    <color name="green">#66bb6a</color>
+    <color name="greenGrass">#b0f8d2</color>
+    <color name="red">#e53935</color>
+    <color name="gray">#90a4ae</color>
+    <color name="backColor">#999999</color>
+    <color name="statusBarColor">#5278ab</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#90a4ae</color>
+    <color name="gray_500">#607d8b</color>
+    <color name="gray_700">#455a64</color>
+    <color name="gray_back">#E1E2E1</color>
+    <color name="yellow">#F0DD00</color>
+    <color name="text_shadow">#7F000000</color>
+    <color name="yoga_back1">#8799de</color>
+</resources>
+

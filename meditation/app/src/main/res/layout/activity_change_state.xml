@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_change_state"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="apps.hillavas.com.meditation.ChangeStateActivity">
+
+    <include layout="@layout/toolbar_all"
+        android:id="@+id/fragment_menu_toolbar"/>
+
+
+    <FrameLayout
+        android:id="@+id/activity_change_frame_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fragment_menu_toolbar"
+        android:padding="16dp"
+        android:visibility="visible"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/textFirst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="برای عضویت در سرویس ، لطفا \n شماره موبایل خود را در کادر ذیل \n وارد نمائید"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:lineSpacingExtra="10dp"
+                android:layout_marginTop="32dp"
+                />
+
+            <EditText
+                android:id="@+id/activity_change_edit_mobileNumber"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="@string/hint_mobile"
+                android:inputType="phone"
+                android:background="@drawable/curve_bg_gray"
+                android:gravity="start|center"
+                android:maxLength="11"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/gray_500"
+                android:layout_below="@+id/textFirst"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                />
+            <Button
+                android:id="@+id/activity_change_btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/accept"
+                android:background="@drawable/curve_bg_blue"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:layout_below="@+id/activity_change_edit_mobileNumber"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                />
+
+        </RelativeLayout>
+
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/activity_change_frame_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fragment_menu_toolbar"
+        android:visibility="invisible"
+        android:padding="16dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textSecond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="برای عضویت در سرویس ، لطفا \n کد فعال سازی را در کادر ذیل \n وارد نمائید"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:lineSpacingExtra="10dp"
+        android:layout_marginTop="32dp"
+        />
+
+    <EditText
+        android:id="@+id/activity_change_edit_code"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:hint="@string/hint_requestCode"
+        android:inputType="phone"
+        android:background="@drawable/curve_bg_gray"
+        android:gravity="center"
+        android:maxLength="11"
+        android:paddingLeft="8dp"
+        android:paddingTop="8dp"
+        android:paddingRight="8dp"
+        android:textColor="@color/gray_500"
+        android:layout_below="@+id/textSecond"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:id="@+id/activity_change_btn_accept"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="تائید"
+        android:background="@drawable/curve_bg_blue"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:layout_below="@+id/activity_change_edit_code"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>
+
+
+    </FrameLayout>
+
+</RelativeLayout>

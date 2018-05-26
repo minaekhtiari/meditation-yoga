@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/toolbar_all_image_back"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:padding="8dp"
+
+    >
+    <RelativeLayout
+        android:id="@+id/toolbar_all_imageMessage_relative"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        >
+        <ImageView
+            android:id="@+id/toolbar_all_imageMessage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:tint="@color/white"
+            android:layout_alignParentLeft="true"
+            />
+
+        <RelativeLayout
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentRight="true"
+            >
+            <ImageView
+                android:id="@+id/toolbar_all_transparent_image_newAnswerCountBack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:tint="@color/green"
+
+                />
+            <TextView
+                android:id="@+id/toolbar_all_transparent_text_newAnswerCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="1"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:paddingTop="2dp"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/toolbar_all_frameTitle_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="2dp"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@+id/toolbar_all_imageMessage_relative"
+        android:layout_toLeftOf="@+id/toolbar_all_imageBack_relative"
+        android:textSize="12sp"
+
+        />
+
+    <RelativeLayout
+        android:id="@+id/toolbar_all_imageBack_relative"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/toolbar_all_imageBack"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:tint="@color/white"
+            />
+    </RelativeLayout>
+</RelativeLayout>

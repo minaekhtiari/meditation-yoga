@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--DragLayout要求所有子View的layout_gravity都居中显示-->
+
+    <apps.hillavas.com.meditation.DragLayout
+        android:id="@+id/drag_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:bototmExtraIndicatorHeight="@dimen/card_extra_height"
+        app:bottomDragVisibleHeight="@dimen/card_bottom_info_height"
+        >
+
+        <!--1. 这个是底部的view-->
+
+        <FrameLayout
+            android:id="@+id/common_frameDetails"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_gravity="center_vertical"
+            android:visibility="invisible"
+            >
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/fragment_common_cardDetails"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/card_bottom_info_height"
+                    android:layout_gravity="bottom"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    >
+
+                    <TextView
+                        android:id="@+id/common_text_titr1"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:maxLines="1"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:id="@+id/common_text_titr2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="NO. 7911847"
+                            android:textColor="@color/gray_500"
+                            android:textSize="11sp"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"
+                            />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_marginTop="2dp"
+                        android:background="#f0f0f0" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        >
+                        <ImageView
+                            android:id="@+id/fragment_home_page_sexualHealth_allcontent_imagevideotype"
+                            android:layout_width="10dp"
+                            android:layout_height="20dp"
+                            android:tint="@color/blue"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginRight="2dp"
+                            />
+                        <TextView
+                            android:id="@+id/fragment_common_txtDateDay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:textColor="@color/gray_500"
+                            android:textSize="8sp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginRight="2dp"
+                            android:layout_toLeftOf="@+id/fragment_home_page_sexualHealth_allcontent_imagevideotype"
+                            android:gravity="center"
+                            android:layout_centerVertical="true"
+                            />
+                        <TextView
+                            android:id="@+id/fragment_common_txtDateMounth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:textColor="@color/gray_500"
+                            android:textSize="9sp"
+                            android:layout_toLeftOf="@+id/fragment_common_txtDateDay"
+                            android:layout_marginBottom="10dp"
+                            android:gravity="center"
+                            android:layout_centerVertical="true"
+                            />
+                        <TextView
+                            android:id="@+id/fragment_common_txtDateYear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:textColor="@color/gray_500"
+                            android:layout_marginRight="2dp"
+                            android:textSize="8sp"
+                            android:layout_toLeftOf="@+id/fragment_common_txtDateMounth"
+                            android:layout_marginBottom="8dp"
+                            android:gravity="center"
+                            android:layout_centerVertical="true"
+                            />
+
+                        <ImageView
+                            android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_LikeIcon"
+                            android:layout_width="10dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/liked"
+                            android:tint="@color/red"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="8dp"
+                            android:layout_toRightOf="@+id/fragment_common_textLikeCount"
+                            />
+                        <TextView
+                            android:id="@+id/fragment_common_textLikeCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:text="356"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/fragment_home_page_sexualHealth_recycler_conent_viewIcon"
+                            android:layout_marginRight="2dp"
+                            android:gravity="center"
+                            android:textSize="8sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="2dp"
+                            android:paddingRight="2dp"
+                            android:textColor="@color/gray_500"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="8dp"
+                            />
+
+                        <ImageView
+                            android:id="@+id/fragment_home_page_sexualHealth_recycler_conent_viewIcon"
+                            android:layout_width="15dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/view"
+                            android:tint="@color/gray_500"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/fragment_common_textViewCount"
+                            android:layout_marginRight="8dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="8dp"
+                            />
+                        <TextView
+                            android:id="@+id/fragment_common_textViewCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:text="419"
+                            android:layout_marginRight="2dp"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:textSize="8sp"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="2dp"
+                            android:paddingRight="2dp"
+                            android:textColor="@color/gray_500"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="8dp"
+                            />
+
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+        </FrameLayout>
+
+        <!--2. 頂層可滑动的View-->
+
+
+
+        <apps.hillavas.com.meditation.AspectRatioCardView
+            android:id="@+id/aspectRatio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/card_extra_height"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="6dp"
+            app:cardMaxElevation="6dp"
+            android:layout_marginTop="16dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:padding="5dp">
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    />
+                <ImageView
+                    android:id="@+id/image_lock"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/lock3"
+                    android:visibility="visible"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+        </apps.hillavas.com.meditation.AspectRatioCardView>
+    </apps.hillavas.com.meditation.DragLayout>
+
+</FrameLayout>
