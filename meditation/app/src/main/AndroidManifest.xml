@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="apps.hillavas.com.meditation.HOME"
+            android:name="apps.hillavas.com.meditation.TrainingActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -77,7 +77,6 @@
             android:name="apps.hillavas.com.meditation.ProfileInfo_Activity"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name="apps.hillavas.com.meditation.Yoga_contents_all_for_categoryid" />
-        <activity android:name="apps.hillavas.com.meditation.TrainingActivity" />
         <activity android:name="apps.hillavas.com.meditation.AddCreditActivity"></activity>
     </application>
 

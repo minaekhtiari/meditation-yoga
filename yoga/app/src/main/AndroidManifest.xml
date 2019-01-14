@@ -12,15 +12,15 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
-        android:name=".FontSetterOnApllication"
+        android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/titr"
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".HOME"
+            android:name=".activity.HOME"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -29,54 +29,51 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MessagingActivity"
+            android:name=".activity.MessagingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AboutUs"
+            android:name=".activity.AboutUs"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CheckBalanceActivity"
+            android:name=".activity.CheckBalanceActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Buesy"
+            android:name=".activity.Buesy"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ArticleTextView"
+            android:name=".activity.ArticleTextView"
             android:label="@string/title_activity_article_text_view"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".CommonQuestionOne"
+            android:name=".activity.CommonQuestionOne"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Subjects"
+            android:name=".activity.Subjects"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Signs"
+            android:name=".activity.Signs"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".activity.MenuActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ContentActivity"
+            android:name=".activity.ContentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainOfPagerActivity"
+            android:name=".activity.DetailActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.FirstContentActivity" />
+        <activity android:name=".activity.ConsultantActivity" />
+        <activity android:name=".activity.ChangeStateActivity" />
+        <activity android:name=".activity.NewsActivity" />
+        <activity android:name=".activity.Insert_Info" />
         <activity
-            android:name=".DetailActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".FirstContentActivity" />
-        <activity android:name=".ConsultantActivity" />
-        <activity android:name=".ChangeStateActivity" />
-        <activity android:name=".NewsActivity" />
-        <activity android:name=".Insert_Info" />
-        <activity
-            android:name=".ProfileInfo_Activity"
+            android:name=".activity.ProfileInfo_Activity"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".Yoga_contents_all_for_categoryid" />
-        <activity android:name=".TrainingActivity"></activity>
+        <activity android:name=".activity.Yoga_contents_all_for_categoryid" />
+        <activity android:name=".activity.TrainingActivity"></activity>
     </application>
 
 </manifest>

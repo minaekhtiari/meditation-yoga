@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="apps.hillavas.com.yoga.NewsActivity">
+    tools:context="apps.hillavas.com.yoga.activity.NewsActivity">
 
 
     <WebView

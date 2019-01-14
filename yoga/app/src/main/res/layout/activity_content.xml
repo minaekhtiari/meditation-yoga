@@ -4,7 +4,7 @@
     android:id="@+id/activity_content_drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="apps.hillavas.com.yoga.ContentActivity"
+    tools:context="apps.hillavas.com.yoga.activity.ContentActivity"
     android:background="@color/white"
     >
 

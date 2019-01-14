@@ -6,7 +6,7 @@
     android:background="@color/white"
     >
 
-    <classes.justifiers.JustifiedTextView
+    <apps.hillavas.com.yoga.classes.justifiers.JustifiedTextView
         android:id="@+id/fragment_messaging_new_jText"
         android:layout_width="match_parent"
         android:layout_height="200dp"

@@ -51,7 +51,7 @@
             android:layout_below="@+id/oneQuestion_Onequestion"
             android:layout_marginTop="16dp"
             />
-            <classes.justifiers.JustifiedTextView
+            <apps.hillavas.com.yoga.classes.justifiers.JustifiedTextView
                 android:id="@+id/oneQuestion_Oneanswer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

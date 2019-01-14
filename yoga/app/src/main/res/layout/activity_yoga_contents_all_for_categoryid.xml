@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="apps.hillavas.com.yoga.Yoga_contents_all_for_categoryid">
+    tools:context="apps.hillavas.com.yoga.activity.Yoga_contents_all_for_categoryid">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/activity_yoga_contents_all_recyclerview"

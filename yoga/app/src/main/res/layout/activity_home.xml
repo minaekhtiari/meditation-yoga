@@ -5,7 +5,7 @@
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="apps.hillavas.com.yoga.HOME"
+    tools:context="apps.hillavas.com.yoga.activity.HOME"
     >
     <FrameLayout
         android:id="@+id/frameLayout_finish"

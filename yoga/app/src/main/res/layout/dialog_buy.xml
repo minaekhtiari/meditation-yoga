@@ -20,7 +20,7 @@
         android:layout_margin="16dp"
         android:gravity="center"
         android:lineSpacingExtra="8dp"
-        android:text="آیا از خرید این ویدئو مطمئن هستید ؟"
+        android:text="@string/sure_to_buy"
         />
     <TextView
         android:id="@+id/textLine"

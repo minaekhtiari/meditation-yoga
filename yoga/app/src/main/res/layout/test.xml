@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="برای تغییر سطح بر روی فیلتر کلیک نمائید"
+        android:text="@string/change"
         android:textSize="23sp"
         android:textColor="@color/white"
         />

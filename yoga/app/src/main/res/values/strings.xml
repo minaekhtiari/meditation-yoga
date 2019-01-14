@@ -10,7 +10,7 @@
     <string name="sex">جنیست</string>
     <string name="marriedState">وضعیت تاهل</string>
     <string name="requestCode">کد فعال سازی</string>
-    <string name="realRequestCode">اعتبار سنجی کد</string>
+    <string name="realRequestCode">فعال سازی</string>
     <string name="dontGiveRequestCode">کد فعال سازی را دریافت نکردید؟</string>
     <string name="giveRequestCode">درخواست کد جدید کنید</string>
     <string name="forgottenPassword">رمز عبور را فراموش کرده اید؟</string>
@@ -131,5 +131,46 @@
     <string name="showCase_messaging"><font color="#607d8b" size="6">"برای ارسال پیام خصوصی به اساتید از این گزینه استفاده نمائید"</font></string>
     <string name="showCase_filter"><font color="#607d8b" size="6">"برای تغییر مقطع تحصیلی و دروس بر روی کلید فیلتر کلیک نمائید"</font></string>
     <string name="next"><font size="10">بعدی</font></string>
+    <string name="price">مبلغ :</string>
+    <string name="info">آمار و اطلاعات</string>
+    <string name="tody_calories">کالری مصرفی امروز</string>
+    <string name="train_time">زمان تمرین امروز</string>
+    <string name="total_score">امتیاز کل</string>
+    <string name="pats_month_chart">نمودار ماه گذشته</string>
+    <string name="body_movement">حرکات بدنی</string>
+    <string name="readiness">آمادگی</string>
+    <string name="clearing">پاکسازی</string>
+    <string name="asana">آسانا</string>
+    <string name="cycle">سیکل</string>
+    <string name="zen">ذن</string>
+    <string name="weight">وزن :</string>
+    <string name="km">کیلوگرم</string>
+    <string name="home">خانه</string>
+    <string name="sure_to_buy">آیا از خرید این ویدئو مطمئن هستید ؟</string>
+    <string name="consultant_tip">همراه اولی عزیز در این بخش   شما می توانید ، به صورت مستقیم و   تلفنی با مشاور صحبت کنید</string>
+    <string name="change">برای تغییر سطح بر روی فیلتر کلیک نمائید</string>
+    <string name="asana_beginer">آسانا مقدماتی</string>
+    <string name="buyed">خریداری شده</string>
+    <string name="free">رایگان</string>
+    <string name="rial">ریال</string>
+
+    <string name="buy_message">آیا تمایل به خرید ویدئوی
+        %1$s
+ با قیمت :
+        %2$d
+        ریال را دارید؟</string>
+    <string name="code_is_not_correct">کد اشتباه است .</string>
+    <string name="asana_pro">آسانا پیشرفته</string>
+    <string name="knee">زانو</string>
+    <string name="neck">گردن</string>
+    <string name="hand">دست و شانه</string>
+    <string name="body_form">فرم دهی</string>
+    <string name="self_confidence">اعتماد به نفس</string>
+    <string name="keria">کریا</string>
+    <string name="tel_consultant">مشاوره تلفنی</string>
+    <string name="subscribe_to_service">عضویت در سرویس</string>
+    <string name="filter_1">فیلتر بر اساس مقطع تحصیلی</string>
+
+
 </resources>
 

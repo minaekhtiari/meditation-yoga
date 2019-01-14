@@ -22,7 +22,7 @@
             android:id="@+id/textManual"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="همراه اولی عزیز در این بخش \n شما می توانید ، به صورت مستقیم و \n  تلفنی با مشاور صحبت کنید"
+            android:text="@string/consultant_tip"
             android:textColor="@color/gray_500"
             android:gravity="center"
             android:textSize="16sp"

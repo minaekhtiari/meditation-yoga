@@ -467,8 +467,8 @@ public class IntroActivity extends Activity implements View.OnClickListener, Iab
         localStorage.saveLocalData("pay", true);
 
 
-        startActivity(new Intent(IntroActivity.this, UnityPlayerActivity.class));
-        finish();
+        //startActivity(new Intent(IntroActivity.this, UnityPlayerActivity.class));
+        //finish();
     }
 
 }

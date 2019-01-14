@@ -85,22 +85,4 @@ public class HOME extends AppCompatActivity {
         super.onPause();
 
     }
-
-//    class TaskGetUnreadAnswerCount extends AsyncTask<Void , Void , List<Integer>>{
-//        @Override
-//        protected List<Integer> doInBackground(Void... params) {
-//            List<Integer> questionIdsWithNewAnswers = null;
-//            questionIdsWithNewAnswers = QuestionHelper.getUnreadAnswerQuestionIds(token);
-//            return questionIdsWithNewAnswers;
-//        }
-//        @Override
-//        protected void onPostExecute(List<Integer> integers) {
-//            super.onPostExecute(integers);
-//            if(integers == null)
-//                return;
-//            sharedPreferencesHome.edit().putInt(UNREAD_ANSWERS , integers.size()).commit();
-//        }
-//    }
-
-
 }

@@ -53,7 +53,7 @@
             android:layout_below="@id/text"
             android:layout_marginBottom="2dp"
             >
-            <classes.justifiers.JustifiedTextView
+            <apps.hillavas.com.yoga.classes.justifiers.JustifiedTextView
                 android:id="@+id/card_fragment_commonQuestion_Oneanswer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
