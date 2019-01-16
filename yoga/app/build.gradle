@@ -26,8 +26,9 @@ android {
     }
 }
 repositories {
-    jcenter()
+
     mavenCentral()
+    jcenter()
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -58,9 +59,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:17.0.0'
     implementation 'com.batch.android:batch-sdk:1.12+'
 
-    implementation project(':appnex-v1')
     implementation 'cz.msebera.android:httpclient:4.4.1.1'
+    implementation project(':appnex-v2.0.2')
 
-
+    implementation files('libs/inAppSDK.aar')
+    implementation files('libs/inAppPurchase.aar')
 }
 apply plugin: 'com.google.gms.google-services'

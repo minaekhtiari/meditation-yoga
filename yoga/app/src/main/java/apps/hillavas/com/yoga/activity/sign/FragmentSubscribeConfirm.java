@@ -167,6 +167,9 @@ public class FragmentSubscribeConfirm extends Fragment {
                 btnConfirm.setEnabled(true);
 
                 if (response.isSuccessful()) {
+
+                    //todo
+
                     sharedPreferencesHome.edit().putString(GUID, response.body().getMemberSignUp().getToken()).commit();
                     Intent intent = new Intent(getActivity(), FirstContentActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
