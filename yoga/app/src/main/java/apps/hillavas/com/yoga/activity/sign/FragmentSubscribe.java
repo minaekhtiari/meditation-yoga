@@ -74,7 +74,8 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener 
                     return;
                 }
 
-
+//todo
+                //if(irrancell)else{}
                 SubscribeModel subscribeModel = new SubscribeModel();
                 subscribeModel.setMobileNumber(String.valueOf(editMobileNumber.getText()));
 

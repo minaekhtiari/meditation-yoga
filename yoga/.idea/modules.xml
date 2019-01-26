@@ -3,10 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/appnex-v2.0.2/appnex-v2.0.2.iml" filepath="$PROJECT_DIR$/appnex-v2.0.2/appnex-v2.0.2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appnex-v2.0.4/appnex-v2.0.4.iml" filepath="$PROJECT_DIR$/appnex-v2.0.4/appnex-v2.0.4.iml" />
       <module fileurl="file://$PROJECT_DIR$/filemanaging/filemanaging.iml" filepath="$PROJECT_DIR$/filemanaging/filemanaging.iml" />
       <module fileurl="file://$PROJECT_DIR$/messaging/messaging.iml" filepath="$PROJECT_DIR$/messaging/messaging.iml" />
-      <module fileurl="file://$PROJECT_DIR$/resno-sdk/resno-sdk.iml" filepath="$PROJECT_DIR$/resno-sdk/resno-sdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/yoga.iml" filepath="$PROJECT_DIR$/yoga.iml" />
     </modules>
   </component>

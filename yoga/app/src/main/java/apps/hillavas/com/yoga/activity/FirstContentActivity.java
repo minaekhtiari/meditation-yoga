@@ -79,6 +79,7 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
         sharedPreferencesHome = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         frameBase1 = (FrameLayout) findViewById(R.id.firstContentActivity_frameBase);
         frameBase2 = (FrameLayout) findViewById(R.id.firstContentActivity_frameBase2);
+        //todo
         token = sharedPreferencesHome.getString(GUID, "");
         name = sharedPreferencesHome.getString(NAME, "");
         weight = sharedPreferencesHome.getInt(WEIGHT, 0);

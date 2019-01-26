@@ -75,6 +75,7 @@ public class ProfileInfo_Activity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_info_);
         sharedPreferencesHome = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        //todo
         token = sharedPreferencesHome.getString(GUID , "");
         linearImageMale = (LinearLayout) findViewById(R.id.fragment_register_linear_male);
         linearImageFemale = (LinearLayout) findViewById(R.id.fragment_register_linear_female);

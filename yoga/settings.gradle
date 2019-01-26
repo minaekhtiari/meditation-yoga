@@ -1,1 +1,1 @@
-include ':app', ':messaging', ':filemanaging', ':resno-sdk', ':appnex-v2.0.2'
+include ':app', ':messaging', ':filemanaging', ':appnex-v2.0.4'

@@ -36,6 +36,7 @@ public class HOME extends AppCompatActivity {
     String token = null;
     FrameLayout frameBase;
     FrameLayout frameFinish;
+
     boolean compeleteRegister = false;
 
     @Override
@@ -46,6 +47,7 @@ public class HOME extends AppCompatActivity {
         sharedPreferencesHome = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         sharedPreferencesHome.edit().putInt(FONT_SIZE , sharedPreferencesHome.getInt(FONT_SIZE , 12)).commit();
         sharedPreferencesHome.edit().putInt(CATEGORY_ID , 10).commit();
+        //todo
         token = sharedPreferencesHome.getString(GUID, "");
         compeleteRegister = sharedPreferencesHome.getBoolean(COMPELETE_REGISTER, false);
 
@@ -60,6 +62,7 @@ public class HOME extends AppCompatActivity {
         frameFinish = (FrameLayout) findViewById(R.id.frameLayout_finish);
         transaction = getSupportFragmentManager().beginTransaction();
         if(token != null && token.length() > 0 ) {
+            //todo
             if(compeleteRegister){
                 Intent intent = new Intent(this , FirstContentActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

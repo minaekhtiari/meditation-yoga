@@ -97,7 +97,7 @@ public class FragmentSubscribeConfirm extends Fragment {
                                         Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                         return;
                                     }
-
+//todo
                                     memberSignUpFotReciveToken(response.body().getResult());
                                 }
 
@@ -125,6 +125,7 @@ public class FragmentSubscribeConfirm extends Fragment {
                                         Toast.makeText(getActivity(), R.string.incorrectCode, Toast.LENGTH_SHORT).show();
                                         return;
                                     }
+                                    //todo
 
                                     memberSignUpFotReciveToken(response.body().getResult());
                                 }
