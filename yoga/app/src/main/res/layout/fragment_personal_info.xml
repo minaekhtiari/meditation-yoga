@@ -179,11 +179,31 @@
                 android:layout_below="@+id/fragment_personalInfo_text_app"
                 />
             <TextView
-                android:id="@+id/fragment_personalInfo_text_exit"
+
+                android:id="@+id/fragment_personalInfo_sign_out_irancell"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textSize="12sp"
                 android:layout_below="@+id/line5"
+                android:textColor="@color/white"
+                android:text="لغو اشتراک"
+                android:gravity="center|start"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                />
+            <ImageView
+                android:id="@+id/line6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gradiant"
+                android:layout_below="@+id/fragment_personalInfo_sign_out_irancell"
+                />
+            <TextView
+                android:id="@+id/fragment_personalInfo_text_exit"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="12sp"
+                android:layout_below="@+id/line6"
                 android:textColor="@color/white"
                 android:text="خروج"
                 android:gravity="center|start"

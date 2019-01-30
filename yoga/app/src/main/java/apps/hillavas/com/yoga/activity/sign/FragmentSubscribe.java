@@ -1,10 +1,16 @@
 package apps.hillavas.com.yoga.activity.sign;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +19,22 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.android.billingclient.util.IabBroadcastReceiver;
+import com.android.billingclient.util.IabHelper;
+import com.android.billingclient.util.IabResult;
+import com.android.billingclient.util.Inventory;
+import com.android.billingclient.util.Purchase;
+
 import apps.hillavas.com.yoga.R;
+import apps.hillavas.com.yoga.activity.ChooseOperator;
+import apps.hillavas.com.yoga.activity.FirstContentActivity;
+import apps.hillavas.com.yoga.activity.HOME;
+import apps.hillavas.com.yoga.activity.ProfileInfo_Activity;
+import apps.hillavas.com.yoga.classes.tools.helpers.RetrofitFactory;
 import apps.hillavas.com.yoga.data.models.OtpResultJson;
 import apps.hillavas.com.yoga.data.models.ResultJson;
+import apps.hillavas.com.yoga.data.models.ResultJsonIrancellMemberSignUp;
+import apps.hillavas.com.yoga.data.models.ResultJsonMemberSignUp;
 import apps.hillavas.com.yoga.data.models.SubscribeModel;
 import apps.hillavas.com.yoga.data.remote.OtpApiFactory;
 import apps.hillavas.com.yoga.factories.FragmentHelper;
@@ -24,7 +43,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class FragmentSubscribe extends Fragment implements View.OnClickListener {
+public class FragmentSubscribe extends Fragment implements View.OnClickListener{
 
     Button btnRegister;
     EditText editMobileNumber;
@@ -33,8 +52,32 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener 
     public static final String GUID = "GUID";
     public static final String TRANSACTIONID = "TRANSACTIONID";
     public static final String SUBSCRIBEDUSER = "SubscribedUser";
+    public static final String IS_IRANCELL="IS_IRANCELL";
+    public static final String IS_HAMRAHAVAL="IS_HAMRAHAVAL";
     SharedPreferences sharedPreferencesHome;
 
+
+
+    //Charkhune
+    // Debug tag, for logging
+    private static final String TAG = "Charkhone";
+    // Does the user have the premium upgrade?
+    private boolean mIsPremium = false;
+    // SKUs for our products: the premium upgrade (non-consumable) and gas (consumable)
+    private static final String SKU_PREMIUM = "Meditation_SKU";
+    // (arbitrary) request code for the purchase flow
+    private static final int RC_REQUEST = 10001;
+    // The helper object
+    private IabHelper mHelper;
+    // Provides purchase notification while this app is running
+    private IabBroadcastReceiver mBroadcastReceiver;
+    String payload = "";
+    String phoneNumber;
+    FragmentActivity activity;
+
+
+    String purchaseToken;
+    public static final String Purchase_Token = "Purchase_Token";
 
     @Nullable
     @Override
@@ -47,15 +90,57 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener 
         super.onActivityCreated(savedInstanceState);
         btnRegister = getActivity().findViewById(R.id.fragment_register_Btn_register);
         progressBar = getActivity().findViewById(R.id.progressRegister);
+
         editMobileNumber = getActivity().findViewById(R.id.txt_subscribe_number);
 
         btnRegister.setOnClickListener(this);
 
         sharedPreferencesHome = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
+        if(sharedPreferencesHome.getBoolean(IS_IRANCELL,true)){
+            String base64EncodedPublicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCIHg4cW9avnZYkKOet/k/TSsXngpWXtVpuwvxXhfn3HdrWV47LA28aBrODL1n9+corT+F5nIVa5pd3p2xR99ob8rv3pssYkkBU9Z21d+JVx4tLxTXetazZCaL8Uux3sJTHNHC6Yuab/SXtZLK/2ArYRKbmbaNBo8CJgHXTNMRSBwIDAQAB";
+
+            // Create the helper, passing it our context and the public key to verify signatures with
+            Log.d(TAG, "Creating IAB helper.");
+            mHelper = new IabHelper(getContext(), base64EncodedPublicKey);
+
+            // enable debug logging (for a production application, you should set this to false).
+            mHelper.enableDebugLogging(true);
+
+
+            mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+                public void onIabSetupFinished(IabResult result) {
+                    Log.d(TAG, "Setup finished.");
+
+                    if (!result.isSuccess()) {
+                        // Oh noes, there was a problem.
+                        complain("Problem setting up in-app billing: " + result);
+                        return;
+                    }
+
+                    // Have we been disposed of in the meantime? If so, quit.
+                    if (mHelper == null) return;
+
+
+                }
+            });
+            editMobileNumber.setHint("شماره ایرانسل خود را وارد کنید");
+        }else {
+            editMobileNumber.setHint("شماره همراه اول خود را وارد کنید");
+        }
+
+    }
+    @Override
+    public void onAttach(Activity activity) {
+        this.activity= (FragmentActivity) activity;
+        super.onAttach(activity);
 
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
 
     @Override
     public void onClick(View view) {
@@ -64,76 +149,231 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener 
             case R.id.fragment_register_Btn_register:
 
 
-//                if (!ConnectionChecker.check(getActivity())) {
-//                    Toast.makeText(getActivity(), R.string.noConnection, Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-
                 if (editMobileNumber.length() < 11) {
                     Toast.makeText(getActivity(), R.string.errorMobileNumber, Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-//todo
-                //if(irrancell)else{}
-                SubscribeModel subscribeModel = new SubscribeModel();
-                subscribeModel.setMobileNumber(String.valueOf(editMobileNumber.getText()));
-
-                btnRegister.setEnabled(false);
-                progressBar.setVisibility(View.VISIBLE);
-
-                OtpApiFactory.getOtpClient().subscribe(subscribeModel).enqueue(new Callback<OtpResultJson>() {
-                    @Override
-                    public void onResponse(Call<OtpResultJson> call, Response<OtpResultJson> response) {
-                        if (response != null && response.body() != null) {
-
-                            if (response.body().isIsSuccessfull() && response.body().getResult().equals("-1")) { //user is subscribed via phoneNumber
-
-                                sharedPreferencesHome.edit().putLong(MOBILE_NUMBER, Long.valueOf(editMobileNumber.getText().toString())).commit();
-                                sharedPreferencesHome.edit().putString(TRANSACTIONID, response.body().getMessage()).commit();
-                                sharedPreferencesHome.edit().putBoolean(SUBSCRIBEDUSER, true).commit();
-
-                                new FragmentHelper(new FragmentSubscribeConfirm(),
-                                        R.id.frameLayout_base,
-                                        getActivity().getSupportFragmentManager()
-                                ).replace(true);
 
 
-                            } else if (response.body().isIsSuccessfull()) {
+                if(sharedPreferencesHome.getBoolean(IS_IRANCELL,true)){
+                    Intent fillInIntent = new Intent();
 
-                                sharedPreferencesHome.edit().putLong(MOBILE_NUMBER, Long.valueOf(editMobileNumber.getText().toString())).commit();
-                                sharedPreferencesHome.edit().putString(TRANSACTIONID, response.body().getResult().toString()).commit();
+//                checkAccount(phoneNumber); //todo check user subscribe
+                    fillInIntent.putExtra("msisdn",  String.valueOf(editMobileNumber.getText()));
+                    mHelper.setFillInIntent(fillInIntent);
 
-                                new FragmentHelper(new FragmentSubscribeConfirm(),
-                                        R.id.frameLayout_base,
-                                        getActivity().getSupportFragmentManager()
-                                ).replace(true);
+                    payload = "";
+                    try {
+                        mHelper.launchPurchaseFlow(getActivity(), SKU_PREMIUM, RC_REQUEST,
+                                mPurchaseFinishedListener, payload);
+
+                        //btnRegister.setVisibility(View.INVISIBLE);
+
+                    } catch (IabHelper.IabAsyncInProgressException e) {
+                        alert("Error launching purchase flow. Another async operation in progress.");
+                    }
 
 
-                            } else {
-                                 Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+
+//                    new FragmentHelper(new FragmentSubscribeConfirm(),
+//                            R.id.frameLayout_base,
+//                            getActivity().getSupportFragmentManager()
+//                    ).replace(true);
+
+                }else {
+
+                    SubscribeModel subscribeModel = new SubscribeModel();
+                    subscribeModel.setMobileNumber(String.valueOf(editMobileNumber.getText()));
+
+                    btnRegister.setEnabled(false);
+                    progressBar.setVisibility(View.VISIBLE);
+
+                    OtpApiFactory.getOtpClient().subscribe(subscribeModel).enqueue(new Callback<OtpResultJson>() {
+                        @Override
+                        public void onResponse(Call<OtpResultJson> call, Response<OtpResultJson> response) {
+                            if (response != null && response.body() != null) {
+
+                                if (response.body().isIsSuccessfull() && response.body().getResult().equals("-1")) { //user is subscribed via phoneNumber
+
+                                    sharedPreferencesHome.edit().putLong(MOBILE_NUMBER, Long.valueOf(editMobileNumber.getText().toString())).commit();
+                                    sharedPreferencesHome.edit().putString(TRANSACTIONID, response.body().getMessage()).commit();
+                                    sharedPreferencesHome.edit().putBoolean(SUBSCRIBEDUSER, true).commit();
+
+                                    new FragmentHelper(new FragmentSubscribeConfirm(),
+                                            R.id.frameLayout_base,
+                                            getActivity().getSupportFragmentManager()
+                                    ).replace(true);
+
+
+                                } else if (response.body().isIsSuccessfull()) {
+
+                                    sharedPreferencesHome.edit().putLong(MOBILE_NUMBER, Long.valueOf(editMobileNumber.getText().toString())).commit();
+                                    sharedPreferencesHome.edit().putString(TRANSACTIONID, response.body().getResult().toString()).commit();
+
+                                    new FragmentHelper(new FragmentSubscribeConfirm(),
+                                            R.id.frameLayout_base,
+                                            getActivity().getSupportFragmentManager()
+                                    ).replace(true);
+
+
+                                } else {
+                                    Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+
+                                }
 
                             }
 
+                            btnRegister.setEnabled(true);
+                            progressBar.setVisibility(View.INVISIBLE);
+
                         }
 
-                        btnRegister.setEnabled(true);
-                        progressBar.setVisibility(View.INVISIBLE);
+                        @Override
+                        public void onFailure(Call<OtpResultJson> call, Throwable t) {
+                            Toast.makeText(getActivity(), R.string.noConnection, Toast.LENGTH_SHORT).show();
+                            btnRegister.setEnabled(true);
+                            progressBar.setVisibility(View.INVISIBLE);
 
-                    }
+                        }
 
-                    @Override
-                    public void onFailure(Call<OtpResultJson> call, Throwable t) {
-                        Toast.makeText(getActivity(), R.string.noConnection, Toast.LENGTH_SHORT).show();
-                        btnRegister.setEnabled(true);
-                        progressBar.setVisibility(View.INVISIBLE);
+                    });
+                }
 
-                    }
-
-                });
-
-                break;
 
         }
     }
+    /**
+     * Verifies the developer payload of a purchase.
+     */
+    private boolean verifyDeveloperPayload(Purchase p) {
+        String verifyPayload = p.getDeveloperPayload();
+
+        if (verifyPayload.equals(payload)) {
+
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "onActivityResult(" + requestCode + "," + resultCode + "," + data);
+        if (mHelper == null) return;
+
+        // Pass on the activity result to the helper for handling
+        if (!mHelper.handleActivityResult(requestCode, resultCode, data)) {
+            // not handled, so handle it ourselves (here's where you'd
+            // perform any handling of activity results not related to in-app
+            // billing...
+            super.onActivityResult(requestCode, resultCode, data);
+        } else {
+            Log.d(TAG, "onActivityResult handled by IABUtil.");
+        }
+    }
+    // Callback for when a purchase is finished
+    private IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
+        public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
+            Log.d(TAG, "Purchase finished: " + result + ", purchase: " + purchase);
+
+            btnRegister.setVisibility(View.VISIBLE);
+
+            // if we were disposed of in the meantime, quit.
+            if (mHelper == null) return;
+
+            if (result.isFailure()) {
+                complain("خطا در پرداخت.");
+                return;
+            }
+            if (!verifyDeveloperPayload(purchase)) {
+                complain("خطا در تایید پرداخت");
+                return;
+            }
+
+            Log.d(TAG, "Purchase successful."+purchase.getToken());
+//            //  CharkhunePurchaseToken
+            purchaseToken= purchase.getToken();
+            sharedPreferencesHome.edit().putString("PurchaseToken",purchaseToken).commit();
+
+            if (purchase.getSku().equals(SKU_PREMIUM)) {
+                // bought the premium upgrade!
+                Log.d(TAG, "Purchase is premium upgrade. Congratulating user.");
+                //alert("Thank you for upgrading to premium!");
+                mIsPremium = true;
+
+
+                getIrancellToken();
+
+
+
+            }
+        }
+    };
+
+    public void getIrancellToken() {
+
+        RetrofitFactory.getRetrofitClient().memberIrancellSignUp(String.valueOf(editMobileNumber.getText())).enqueue(new Callback<ResultJsonIrancellMemberSignUp>() {
+            @Override
+            public void onResponse(Call<ResultJsonIrancellMemberSignUp> call, Response<ResultJsonIrancellMemberSignUp> response) {
+
+
+                if (response.isSuccessful()) {
+
+
+
+                    sharedPreferencesHome.edit().putString(GUID, response.body().getResult()).commit();
+                    Intent intent = new Intent(getActivity(), FirstContentActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getActivity(), "خطا در دریافت توکن", Toast.LENGTH_SHORT).show();
+
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    fm.popBackStack();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResultJsonIrancellMemberSignUp> call, Throwable t) {
+
+                Toast.makeText(getActivity(), R.string.noConnection, Toast.LENGTH_SHORT).show();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.popBackStack();
+
+
+            }
+
+        });
+    }
+
+    // We're being destroyed. It's important to dispose of the helper here!
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        // very important:
+        if (mBroadcastReceiver != null) {
+            getActivity().unregisterReceiver(mBroadcastReceiver);
+        }
+
+        // very important:
+        Log.d(TAG, "Destroying helper.");
+        if (mHelper != null) {
+            mHelper.disposeWhenFinished();
+            mHelper = null;
+        }
+    }
+
+    private void complain(String message) {
+        Log.e(TAG, "**** TrivialDrive Error: " + message);
+        alert(message);
+    }
+
+    private void alert(String message) {
+
+        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+
+    }
+
 }

@@ -1,5 +1,8 @@
 package apps.hillavas.com.yoga.classes.tools.helpers;
 
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -14,10 +17,17 @@ public class RetrofitFactory {
     private static Retrofit retrofit;
 
     private static Retrofit getRetrofit(){
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .connectTimeout(1, TimeUnit.MINUTES)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .retryOnConnectionFailure(true)
+                .build();
         if(retrofit == null){
             Retrofit.Builder reBuilder = new Retrofit.Builder();
             reBuilder
-                    .baseUrl(URL)
+                    .baseUrl(URL).client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create());
             retrofit = reBuilder.build();
         }

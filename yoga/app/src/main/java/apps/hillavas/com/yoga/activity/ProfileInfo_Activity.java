@@ -50,6 +50,8 @@ public class ProfileInfo_Activity extends AppCompatActivity implements View.OnCl
     public static final String SEX="SEX";
     public static final String WEIGHT="WEIGHT";
     public static final String PICTURE_PROFILE_ADDRESS="PICTURE_PROFILE_ADDRESS";
+    public static final String IS_IRANCELL="IS_IRANCELL";
+    public static final String IS_HAMRAHAVAL="IS_HAMRAHAVAL";
 
     SharedPreferences sharedPreferencesHome;
     Button btnAddAcount;
@@ -69,6 +71,7 @@ public class ProfileInfo_Activity extends AppCompatActivity implements View.OnCl
     private Bitmap bmpImage = null;
     private String fileUrl = null ;
     private String fileAddress = null ;
+    String purchasToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +80,9 @@ public class ProfileInfo_Activity extends AppCompatActivity implements View.OnCl
         sharedPreferencesHome = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         //todo
         token = sharedPreferencesHome.getString(GUID , "");
+
+        purchasToken = sharedPreferencesHome.getString("PurchaseToken", "");
+
         linearImageMale = (LinearLayout) findViewById(R.id.fragment_register_linear_male);
         linearImageFemale = (LinearLayout) findViewById(R.id.fragment_register_linear_female);
         imageMale = (ImageView) findViewById(R.id.fragment_register_image_male);
@@ -128,6 +134,7 @@ public class ProfileInfo_Activity extends AppCompatActivity implements View.OnCl
                 profile.setWeight(Integer.valueOf(editWeight.getText().toString()));
 
                 btnAddAcount.setEnabled(false);
+//                if(sharedPreferencesHome.getBoolean(IS_HAMRAHAVAL,true)){
                 RetrofitFactory.getRetrofitClient().updateProfileInfo(profile).enqueue(new Callback<ResultJsonBoolean>() {
                     @Override
                     public void onResponse(Call<ResultJsonBoolean> call, Response<ResultJsonBoolean> response) {
@@ -148,6 +155,55 @@ public class ProfileInfo_Activity extends AppCompatActivity implements View.OnCl
                         btnAddAcount.setEnabled(true);
                     }
                 });
+               // }
+//                else if(sharedPreferencesHome.getBoolean(IS_IRANCELL,true)){
+//
+//
+//                        CharkhonehHttpFactory.getRetrofitClient().IsSubscribe("apps.hillavas.com.sexual",
+//                                "premium_test", purchasToken, "9d568991-f5cf-386f-a740-9e66fd992588").enqueue(new Callback<IsSubMtn>() {
+//                            @Override
+//                            public void onResponse(Call<IsSubMtn> call, Response<IsSubMtn> response) {
+//                                if (response.body().getAutoRenewing()) {
+//                                    Long expiryTimeMillis = response.body().getExpiryTimeMillis()/1000L;
+//                                    Long currentTime = System.currentTimeMillis() / 1000L;
+//
+//                                    if (expiryTimeMillis >= currentTime) {
+//                                        //todo
+//                                        //complete_register be true
+//
+////                                        Fragment_Home fragment_home = new Fragment_Home();
+////                                        Bundle bundleHome = new Bundle();
+////                                        bundleHome.putInt("arg1", 11);
+////                                        bundleHome.putString("Token", token);
+////                                        fragment_home.setArguments(bundleHome);
+////                                        new FragmentHelper(fragment_home,
+////                                                R.id.frameLayout_base,
+////                                                getActivity().getSupportFragmentManager()
+////                                        ).replace(false);
+//
+//
+//                                    }
+//                                }
+//
+//                                else {
+//                                    //getActivity().finish();
+//
+//                                //    sharedPreferencesHome.edit().putBoolean(REGISTERED , false).commit();
+//                                  //  startActivity(new Intent(getActivity(), HOME.class));
+//
+//
+//                                }
+                       //     }
+
+//                            @Override
+//                            public void onFailure(Call<IsSubMtn> call, Throwable t) {
+//
+//                            }
+//                        });
+
+                 //   }
+
+
             }
         });
     }

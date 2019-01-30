@@ -38,7 +38,8 @@ public class FragmentSubscribeConfirm extends Fragment {
     public static final String GUID = "GUID";
     public static final String TRANSACTIONID = "TRANSACTIONID";
     public static final String SUBSCRIBEDUSER = "SubscribedUser";
-
+    public static final String IS_IRANCELL="IS_IRANCELL";
+    public static final String IS_HAMRAHAVAL="IS_HAMRAHAVAL";
 
     SharedPreferences sharedPreferencesHome;
 

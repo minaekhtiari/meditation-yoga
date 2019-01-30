@@ -1,10 +1,13 @@
 package apps.hillavas.com.yoga;
 
 import android.app.Application;
-
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 
 import com.batch.android.Config;
+
+import net.jhoobin.jhub.CharkhoneSdkApp;
 
 import apps.hillavas.com.yoga.R;
 import io.appnex.android.notification.Appnex;
@@ -15,11 +18,13 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
  */
 
 public class MyApplication extends Application{
-
+    public static final String IS_IRANCELL="IS_IRANCELL";
+    public static final String IS_HAMRAHAVAL="IS_HAMRAHAVAL";
+    SharedPreferences sharedPreferencesHome;
     @Override
     public void onCreate() {
         super.onCreate();
-
+        sharedPreferencesHome = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Appnex.init(this);
 
 //        Batch.setConfig(new Config("5BC1EBED7564F04C977ABF69B16F79"));
@@ -31,7 +36,21 @@ public class MyApplication extends Application{
                 .build()
         );
 
+           CharkhoneSdkApp.initSdk(getApplicationContext(), getSecrets(),true);
+
+
+
 
 
     }
+
+
+
+    public String[] getSecrets() {
+        return getResources().getStringArray(R.array.secrets);
+    }
+
+
+
+
 }

@@ -4,16 +4,16 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "apps.campaign.yoga"
+        applicationId "apps.hillavas.com.yoga"
         minSdkVersion 17
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "3.1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         manifestPlaceholders = [
-                appnex_channel_id:'A-Hillavas',
-                appnex_app_id: 'e81937e9-663e-4499-926f-0518b4a030f8',
+                appnex_channel_id           : 'A-Hillavas',
+                appnex_app_id               : 'e81937e9-663e-4499-926f-0518b4a030f8',
                 // Project number pulled from dashboard, local value is ignored.
                 appnex_google_project_number: '38117559926'
         ]
@@ -55,10 +55,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:17.0.0'
     implementation 'com.batch.android:batch-sdk:1.12.0'
     implementation 'cz.msebera.android:httpclient:4.4.1.1'
-
-    implementation files('libs/inAppSDK.aar')
-    implementation files('libs/inAppPurchase.aar')
     implementation 'net.alexandroid.utils:indicators:1.6'
     implementation project(':appnex-v2.0.4')
+    implementation project(':inAppPurchase')
+    implementation project(':inAppSDK')
 }
 apply plugin: 'com.google.gms.google-services'

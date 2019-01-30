@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:background="@drawable/bg_t1">
+
+
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+
+            android:src="@mipmap/ic_launcher" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_header"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/lbl_choose_operator"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="14dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:text="برای ادامه یکی از اپراتورهای زیر را انتخاب کنید:"
+
+            android:textSize="15dp" />
+  <!--fontPath="fonts/iran_sans.ttf"-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lbl_choose_operator"
+            android:gravity="center">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_irancell"
+                fontPath="fonts/iran_sans.ttf"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/btn_hamrah"
+                android:text="ایرانسل"
+                android:textColor="#0133F9"
+                android:textSize="14dp"
+                android:theme="@style/irancellButtonTheme" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_hamrah"
+                fontPath="fonts/iran_sans.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:text="همراه اول"
+                android:textColor="#212E2F"
+                android:textSize="14dp"
+                android:theme="@style/hamrahButtonTheme" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/frameLayout_base"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+
+        >
+    </FrameLayout>
+
+</RelativeLayout>

@@ -18,9 +18,12 @@ import apps.hillavas.com.yoga.data.models.ResultJsonForBuy;
 import apps.hillavas.com.yoga.data.models.ResultJsonForProfileInfo;
 import apps.hillavas.com.yoga.data.models.ResultJsonForViewCount;
 import apps.hillavas.com.yoga.data.models.ResultJsonInteger;
+import apps.hillavas.com.yoga.data.models.ResultJsonIrancellMemberSignUp;
 import apps.hillavas.com.yoga.data.models.ResultJsonLevels;
 import apps.hillavas.com.yoga.data.models.ResultJsonMemberSignUp;
 import apps.hillavas.com.yoga.data.models.SignUpMemberModel;
+import apps.hillavas.com.yoga.data.models.UnsubIrancellResult;
+import apps.hillavas.com.yoga.data.models.UnsubscribeMemberModel;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -126,4 +129,10 @@ public interface IRetrofit {
     @POST("MobileApi/Member/SignUp")
     Call<ResultJsonMemberSignUp> memberSignUp(@Query("mobileNumber")  String appType );
 
-}
+
+    @POST("MobileApi/Member/IrancellSignUp")
+    Call<ResultJsonIrancellMemberSignUp> memberIrancellSignUp(@Query("MobileNumber")  String appType );
+
+    @POST("Member/IrancellSignOut")
+    Call<UnsubIrancellResult> unregister(@Body UnsubscribeMemberModel unsubscribeMemberModel);
+    }

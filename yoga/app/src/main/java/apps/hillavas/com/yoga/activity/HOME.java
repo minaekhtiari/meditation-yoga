@@ -31,6 +31,8 @@ public class HOME extends AppCompatActivity {
     public static final String UNREAD_ANSWERS="UNREAD_ANSWERS";
     private static final String FONT_SIZE = "FONT_SIZE";
     private static final String STOP_LOADING = "STOP_LOADING";
+    public static final String IS_IRANCELL="IS_IRANCELL";
+    public static final String IS_HAMRAHAVAL="IS_HAMRAHAVAL";
     SharedPreferences sharedPreferencesHome;
     FragmentTransaction transaction;
     String token = null;
@@ -47,7 +49,9 @@ public class HOME extends AppCompatActivity {
         sharedPreferencesHome = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         sharedPreferencesHome.edit().putInt(FONT_SIZE , sharedPreferencesHome.getInt(FONT_SIZE , 12)).commit();
         sharedPreferencesHome.edit().putInt(CATEGORY_ID , 10).commit();
-        //todo
+        sharedPreferencesHome.edit().putBoolean(IS_IRANCELL , false).commit();
+        sharedPreferencesHome.edit().putBoolean(IS_HAMRAHAVAL , false).commit();
+
         token = sharedPreferencesHome.getString(GUID, "");
         compeleteRegister = sharedPreferencesHome.getBoolean(COMPELETE_REGISTER, false);
 
@@ -62,7 +66,7 @@ public class HOME extends AppCompatActivity {
         frameFinish = (FrameLayout) findViewById(R.id.frameLayout_finish);
         transaction = getSupportFragmentManager().beginTransaction();
         if(token != null && token.length() > 0 ) {
-            //todo
+
             if(compeleteRegister){
                 Intent intent = new Intent(this , FirstContentActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -73,10 +77,16 @@ public class HOME extends AppCompatActivity {
                 startActivity(intent);
             }
         }else {
-            transaction.replace(R.id.frameLayout_base, new FragmentSubscribe()).commit();
+
+            Intent intent = new Intent(this, ChooseOperator.class);
+            startActivity(intent);
+
+
             sharedPreferencesHome.edit().putLong(MOBILE_NUMBER, 0).commit();
             sharedPreferencesHome.edit().putString(PASSWORD, "").commit();
+
         }
+        finish();
     }
 
     @Override

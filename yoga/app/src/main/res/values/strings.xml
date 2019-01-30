@@ -35,7 +35,7 @@
     <string name="acceptLicense2">شرایط و قوانین </string>
     <string name="acceptLicense3">  را میپذیرید</string>
     <string name="hint_mobile"><font color="#ccc" size="12">شماره موبایل</font></string>
-    <string name="hint_mobile2"><font color="#ccc" size="12">شماره همراه خود را وارد کنید</font></string>
+    <string name="hint_mobile2"><font color="#ccc" size="12">شماره تلفن خود را وارد کنید</font></string>
     <string name="hint_nameFamily"><font color="#607d8b" size="12">نام و نام خانوادگی</font></string>
     <string name="hint_weight"><font color="#ccc" size="12">وزن</font></string>
     <string name="hint_add_photo"><font color="#ccc" size="12">اضافه کردن \n تصویر پروفایل</font></string>
@@ -180,5 +180,10 @@
 
     </string>
 
+    <string name="unsubscribe_hint">
+      ایرانسلی عزیز \nبا لغو اشتراک خود در اپلیکیشن یوگا دسترسی شما به کلیه خدمات ارائه شده از قبیل ویدئوها لغو می‌شود.\nبا ادامه اشتراک دراپلیکیشن، ضمن برخورداری از سرویس‌های ارائه شده، در قرعه‌کشی‌های مربوط به این اپلیکیشن هم حضور خواهید داشت.
+    </string>
+    <string name="intro1">آموزشها در سه سطح مبتدی، متوسط و پیشرفته در دسترس شما میباشد که میتوانید با انتخاب سطح مورد نظر به طور کامل از ویدیوهای آموزشی استفاده کنید\n آموزش یوگا در مدیتیشن صرفا مبتنی بر متن و صوت نیست بلکه آموزش ها بصورت ویدیوئی با یک مربی ایرانی انجام میشود</string>
+    <string name="intro2">با این اپلیکیشن دیگه نیازی به کلاس های گران قیمت یوگا ندارید \nآشنایی آسان و کاربردی با اپلیکیشن یوگا</string>
 </resources>
 

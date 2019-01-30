@@ -43,6 +43,8 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
     public static final String SENT_MESSAGE="SENT_MESSAGE";
     public static final String GUID="GUID";
     public static final String UNREAD_ANSWERS="UNREAD_ANSWERS";
+    public static final String IS_IRANCELL="IS_IRANCELL";
+    public static final String IS_HAMRAHAVAL="IS_HAMRAHAVAL";
     SharedPreferences sharedPreferencesHome;
     String token = null;
     String title = "";
@@ -67,7 +69,7 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
     TextView tvNavBtnAmar;
     TextView tvNavBtnAsli;
     TextView tvNavBtnApp;
-    TextView tvNavBtnExit;
+    TextView tvNavBtnExit, navUnsubscribeTxt;
 
 
     @Override
@@ -91,6 +93,12 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
         tvNavBtnAsli = (TextView) findViewById(R.id.fragment_personalInfo_text_harakatAsli);
         tvNavBtnApp = (TextView) findViewById(R.id.fragment_personalInfo_text_app);
         tvNavBtnExit = (TextView) findViewById(R.id.fragment_personalInfo_text_exit);
+        navUnsubscribeTxt=findViewById(R.id.fragment_personalInfo_sign_out_irancell);
+
+        if(sharedPreferencesHome.getBoolean(IS_HAMRAHAVAL,true)){
+
+            navUnsubscribeTxt.setVisibility(View.GONE);
+        }
 
         tvNavBtnHome.setOnClickListener(this);
         tvNavBtnAmar.setOnClickListener(this);
@@ -98,6 +106,7 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
         tvNavBtnApp.setOnClickListener(this);
         tvNavBtnExit.setOnClickListener(this);
         ivProfilePicture.setOnClickListener(this);
+        navUnsubscribeTxt.setOnClickListener(this);
 
 
         ((RelativeLayout)findViewById(R.id.fragment_personalInfo_relativeHeader)).setOnClickListener(new View.OnClickListener() {
@@ -238,6 +247,13 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
             case R.id.fragment_personalInfo_text_exit:{
                 drawerLayout.closeDrawer(GravityCompat.END);
                 finish();
+                break;
+            }
+
+            case R.id.fragment_personalInfo_sign_out_irancell:{
+                Intent intent = new Intent(this,UnsubscribeActivity.class);
+                startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.END);
                 break;
             }
         }
