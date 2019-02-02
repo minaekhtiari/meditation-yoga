@@ -24,8 +24,13 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import apps.hillavas.com.yoga.R;
+import apps.hillavas.com.yoga.RetrofitIrancell.CharkhonehHttpFactory;
 import apps.hillavas.com.yoga.activity.fragments.Fragment_content_level1;
 import apps.hillavas.com.yoga.activity.fragments.Fragment_contents;
+import apps.hillavas.com.yoga.data.models.IsSubMtn;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class FirstContentActivity extends AppCompatActivity implements View.OnClickListener{
@@ -70,6 +75,7 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
     TextView tvNavBtnAsli;
     TextView tvNavBtnApp;
     TextView tvNavBtnExit, navUnsubscribeTxt;
+    String purchasToken;
 
 
     @Override
@@ -94,10 +100,12 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
         tvNavBtnApp = (TextView) findViewById(R.id.fragment_personalInfo_text_app);
         tvNavBtnExit = (TextView) findViewById(R.id.fragment_personalInfo_text_exit);
         navUnsubscribeTxt=findViewById(R.id.fragment_personalInfo_sign_out_irancell);
-
+        purchasToken = sharedPreferencesHome.getString("PurchaseToken", "");
         if(sharedPreferencesHome.getBoolean(IS_HAMRAHAVAL,true)){
 
             navUnsubscribeTxt.setVisibility(View.GONE);
+        }else if (sharedPreferencesHome.getBoolean(IS_IRANCELL,true)){
+
         }
 
         tvNavBtnHome.setOnClickListener(this);
@@ -283,5 +291,39 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
         frameBase1.findViewById(R.id.fragment_yoga_category_sikl).setBackgroundColor(getResources().getColor(android.R.color.transparent));
         frameBase1.findViewById(R.id.fragment_yoga_category_zen).setBackgroundColor(getResources().getColor(android.R.color.transparent));
         frameBase1.findViewById(R.id.fragment_yoga_category_amadegi).setBackgroundColor(getResources().getColor(android.R.color.transparent));
+    }
+
+
+    private void checkIsSub() {
+        CharkhonehHttpFactory.getRetrofitClient().IsSubscribe("apps.hillavas.com.yoga",
+                "Meditation_SKU", purchasToken, "9d568991-f5cf-386f-a740-9e66fd992588")
+                .enqueue(new Callback<IsSubMtn>() {
+                    @Override
+                    public void onResponse(Call<IsSubMtn> call, Response<IsSubMtn> response) {
+                        if (response.body().getAutoRenewing()) {
+                            Long expiryTimeMillis = response.body().getExpiryTimeMillis()/1000L;
+                            Long currentTime = System.currentTimeMillis() / 1000L;
+
+                            if (expiryTimeMillis >= currentTime) {
+
+                                Intent intent = new Intent(FirstContentActivity.this , FirstContentActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                            }
+                        }
+
+                        else {
+//                            Intent intent = new Intent(FirstContentActivity.this, ChooseOperator.class);
+//                            startActivity(intent);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<IsSubMtn> call, Throwable t) {
+                        Intent intent = new Intent(FirstContentActivity.this, FirstContentActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }
+                });
     }
 }

@@ -27,6 +27,7 @@
                 >
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:visibility="gone"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/profile_image"
                     android:layout_width="100dp"

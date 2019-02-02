@@ -17,7 +17,13 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import apps.hillavas.com.yoga.R;
+import apps.hillavas.com.yoga.RetrofitIrancell.CharkhonehHttpFactory;
 import apps.hillavas.com.yoga.activity.sign.FragmentSubscribe;
+import apps.hillavas.com.yoga.classes.Home_Menu_Page;
+import apps.hillavas.com.yoga.data.models.IsSubMtn;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class HOME extends AppCompatActivity {
@@ -38,6 +44,7 @@ public class HOME extends AppCompatActivity {
     String token = null;
     FrameLayout frameBase;
     FrameLayout frameFinish;
+    String purchasToken;
 
     boolean compeleteRegister = false;
 
@@ -49,9 +56,8 @@ public class HOME extends AppCompatActivity {
         sharedPreferencesHome = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         sharedPreferencesHome.edit().putInt(FONT_SIZE , sharedPreferencesHome.getInt(FONT_SIZE , 12)).commit();
         sharedPreferencesHome.edit().putInt(CATEGORY_ID , 10).commit();
-        sharedPreferencesHome.edit().putBoolean(IS_IRANCELL , false).commit();
-        sharedPreferencesHome.edit().putBoolean(IS_HAMRAHAVAL , false).commit();
 
+         purchasToken = sharedPreferencesHome.getString("PurchaseToken", "");
         token = sharedPreferencesHome.getString(GUID, "");
         compeleteRegister = sharedPreferencesHome.getBoolean(COMPELETE_REGISTER, false);
 
@@ -68,13 +74,22 @@ public class HOME extends AppCompatActivity {
         if(token != null && token.length() > 0 ) {
 
             if(compeleteRegister){
+                if(sharedPreferencesHome.getBoolean(IS_IRANCELL,true)){
+                    checkIsSub();
+
+                }else{
                 Intent intent = new Intent(this , FirstContentActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
+                }
             }else {
+                if(sharedPreferencesHome.getBoolean(IS_IRANCELL,true)){
+                    checkIsSub();
+
+                }else{
                 Intent intent = new Intent(this, ProfileInfo_Activity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+                startActivity(intent);}
             }
         }else {
 
@@ -132,5 +147,43 @@ public class HOME extends AppCompatActivity {
 //        }
 //    }
 
+
+    private void checkIsSub() {
+        CharkhonehHttpFactory.getRetrofitClient().IsSubscribe("apps.hillavas.com.yoga",
+                "Meditation_SKU", purchasToken, "9d568991-f5cf-386f-a740-9e66fd992588")
+                .enqueue(new Callback<IsSubMtn>() {
+            @Override
+            public void onResponse(Call<IsSubMtn> call, Response<IsSubMtn> response) {
+                if (response.body().getAutoRenewing()) {
+                    Long expiryTimeMillis = response.body().getExpiryTimeMillis()/1000L;
+                    Long currentTime = System.currentTimeMillis() / 1000L;
+
+                    if (expiryTimeMillis >= currentTime) {
+                        if(compeleteRegister) {
+                            Intent intent = new Intent(HOME.this, FirstContentActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }else{
+                            Intent intent = new Intent(HOME.this, ProfileInfo_Activity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }
+                    }
+                }
+
+                else {
+                    Intent intent = new Intent(HOME.this, ChooseOperator.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<IsSubMtn> call, Throwable t) {
+                Intent intent = new Intent(HOME.this, FirstContentActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        });
+    }
 
 }

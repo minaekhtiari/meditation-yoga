@@ -95,15 +95,15 @@ public class ProfileInfo_Activity extends AppCompatActivity implements View.OnCl
         editName = (EditText) findViewById(R.id.fragment_profile_insertion_editName);
         editWeight = (EditText) findViewById(R.id.fragment_profile_insertion_editWeight);
         btnAddAcount = (Button) findViewById(R.id.fragment_register_Btn_register);
-        profileImage = (CircleImageView) findViewById(R.id.profile_image);
+    //    profileImage = (CircleImageView) findViewById(R.id.profile_image);
 
-        profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
-            }
-        });
+//        profileImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+//            }
+//        });
 
         btnAddAcount.setOnClickListener(new View.OnClickListener() {
             @Override
