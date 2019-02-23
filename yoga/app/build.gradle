@@ -6,9 +6,9 @@ android {
     defaultConfig {
         applicationId "apps.hillavas.com.yoga"
         minSdkVersion 17
-        targetSdkVersion 28
-        versionCode 4
-        versionName "3.1.0"
+        targetSdkVersion 26
+        versionCode 8
+        versionName "8.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         manifestPlaceholders = [
@@ -56,7 +56,7 @@ dependencies {
     implementation 'com.batch.android:batch-sdk:1.12.0'
     implementation 'cz.msebera.android:httpclient:4.4.1.1'
     implementation 'net.alexandroid.utils:indicators:1.6'
-    implementation project(':appnex-v2.0.4')
+    implementation project(':appnex-v2.0.5')
     implementation project(':inAppPurchase')
     implementation project(':inAppSDK')
 }

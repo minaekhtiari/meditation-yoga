@@ -61,7 +61,7 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
     RelativeLayout relativeToolbarSetting;
     RelativeLayout relativeToolbarPerson;
     DrawerLayout drawerLayout;
-    ImageView ivProfilePicture;
+    ImageView ivProfilePicture,line6,line7;
     String name;
     int weight;
     ImageView ivToolbarBtnPerson;
@@ -74,7 +74,7 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
     TextView tvNavBtnAmar;
     TextView tvNavBtnAsli;
     TextView tvNavBtnApp;
-    TextView tvNavBtnExit, navUnsubscribeTxt;
+    TextView tvNavBtnExit, navUnsubscribeTxt,supportTel;
     String purchasToken;
 
 
@@ -100,10 +100,16 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
         tvNavBtnApp = (TextView) findViewById(R.id.fragment_personalInfo_text_app);
         tvNavBtnExit = (TextView) findViewById(R.id.fragment_personalInfo_text_exit);
         navUnsubscribeTxt=findViewById(R.id.fragment_personalInfo_sign_out_irancell);
+        line6=findViewById(R.id.line6);
+        line7=findViewById(R.id.line7);
+        supportTel=findViewById(R.id.support_tel);
         purchasToken = sharedPreferencesHome.getString("PurchaseToken", "");
         if(sharedPreferencesHome.getBoolean(IS_HAMRAHAVAL,true)){
 
             navUnsubscribeTxt.setVisibility(View.GONE);
+            supportTel.setVisibility(View.GONE);
+            line6.setVisibility(View.GONE);
+            line7.setVisibility(View.GONE);
         }else if (sharedPreferencesHome.getBoolean(IS_IRANCELL,true)){
 
         }

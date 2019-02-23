@@ -232,8 +232,8 @@ public class ProfileInfo_Activity extends AppCompatActivity implements View.OnCl
             case R.id.fragment_register_linear_female:{
                 if(sex == true) {
                     maleFemaleChanger();
-                    if(sharedPreferencesHome.getString(PICTURE_PROFILE_ADDRESS , "").length() <= 0)
-                        profileImage.setImageResource(R.drawable.person_woman);
+                   //     if(sharedPreferencesHome.getString(PICTURE_PROFILE_ADDRESS , "").length() <= 0)
+                       // profileImage.setImageResource(R.drawable.person_woman);
                 }
                 vibrator.vibrate(65);
                 break;
@@ -241,8 +241,8 @@ public class ProfileInfo_Activity extends AppCompatActivity implements View.OnCl
             case R.id.fragment_register_linear_male:{
                 if(sex == false) {
                     maleFemaleChanger();
-                    if(sharedPreferencesHome.getString(PICTURE_PROFILE_ADDRESS , "").length() <= 0)
-                        profileImage.setImageResource(R.drawable.person_man);
+                   // if(sharedPreferencesHome.getString(PICTURE_PROFILE_ADDRESS , "").length() <= 0)
+                     //   profileImage.setImageResource(R.drawable.person_man);
                 }
                 vibrator.vibrate(65);
                 break;

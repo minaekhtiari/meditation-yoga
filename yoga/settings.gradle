@@ -1,1 +1,1 @@
-include ':app', ':messaging', ':filemanaging', ':appnex-v2.0.4', ':inAppPurchase', ':inAppSDK'
+include ':app', ':messaging', ':filemanaging', ':inAppPurchase', ':inAppSDK', ':appnex-v2.0.5'

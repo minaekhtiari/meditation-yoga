@@ -15,7 +15,10 @@ public class Intro_FragmentPagerAdapter extends FragmentPagerAdapter {
 
     public Intro_FragmentPagerAdapter(FragmentManager fm) {
         super(fm);
+
     }
+
+
 
     @Override
     public Fragment getItem(int position) {

@@ -4,10 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.util.Log;
 
 
 import net.alexandroid.utils.indicators.IndicatorsView;
@@ -46,6 +47,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
             });
 
             mIndicatorsView.setSelectedIndicator(2);
+
         }
 
         @Override
@@ -55,19 +57,22 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
         @Override
         public void onBackPressed() {
-            //  android.support.v4.app.FragmentManager fm=getSupportFragmentManager();
-            //  android.support.v4.app.FragmentTransaction transaction=fm.beginTransaction();
-//        for (int i=0;i<getFragmentManager().getBackStackEntryCount();i++)
-//        {
-//            if(getFragmentManager().getBackStackEntryCount()==2){
-//                finish();
-//                super.onBackPressed();
-//            }
-//        }
 
+            if (viewPager.getCurrentItem() == 0) {
 
+                if (Build.VERSION.SDK_INT >= 16 && Build.VERSION.SDK_INT < 21) {
+                    finishAffinity();
+                } else if (Build.VERSION.SDK_INT >= 21) {
+                    finishAffinity();
 
+                    finishAndRemoveTask();
+                }
+            } else {
+                // Otherwise, select the previous step.
+                viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+            }
         }
+
     }
 
 

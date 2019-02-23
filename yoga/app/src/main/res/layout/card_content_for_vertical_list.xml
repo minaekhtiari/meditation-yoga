@@ -34,23 +34,26 @@
             />
 
         <ImageView
+            android:id="@+id/play2"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/play2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="105dp"
             />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="230dp">
+
             <ImageView
                 android:id="@+id/card_content_vertical_image_lock"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_margin="16dp"
-                android:src="@drawable/lock3"
                 android:elevation="40dp"
+                android:src="@drawable/lock3"
                 android:visibility="invisible"
 
                 />

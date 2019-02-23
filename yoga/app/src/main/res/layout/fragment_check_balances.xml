@@ -51,6 +51,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/fragment_check_balance_profile_image"
                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:visibility="gone"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     app:border_color="@color/white"

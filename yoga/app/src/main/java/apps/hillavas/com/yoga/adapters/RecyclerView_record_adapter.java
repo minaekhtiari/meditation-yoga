@@ -51,7 +51,7 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
     String token;
     boolean free = false;
     int contentId = 0;
-    ImageView imageViewLock;
+    ImageView imageViewLock,play2;
     TextView tvPrice;
     int adapterPosition = 0;
 
@@ -101,7 +101,7 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
         TextView tvScore;
         TextView tvCallories;
         TextView tvTime;
-        ImageView ivTopBorder;
+    ImageView ivTopBorder;
 
 
 
@@ -117,6 +117,7 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
             tvTime = (TextView) itemView.findViewById(R.id.card_content_textTime);
             tvPrice = (TextView) itemView.findViewById(R.id.card_content_textPrice);
             ivTopBorder = (ImageView) itemView.findViewById(R.id.card_content_vertical_imageTopBorder);
+            play2=imageView.findViewById(R.id.play2);
             ivTopBorder.setAlpha(0.8f);
             tvDescription.setTypeface(typeface);
             tvTitr.setTypeface(typeface);
@@ -248,9 +249,15 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
                                                     intentVideo.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                                     context.startActivity(intentVideo);
                                                     new TaskAddToCaloryHistory().execute(contentId);
+                                                }else{
+                                                    play2.setVisibility(View.INVISIBLE);
                                                 }
                                             }
+                                        }else{
+                                            Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_LONG).show();
                                         }
+                                    }else {
+                                        Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_LONG).show();
                                     }
                                 }
 

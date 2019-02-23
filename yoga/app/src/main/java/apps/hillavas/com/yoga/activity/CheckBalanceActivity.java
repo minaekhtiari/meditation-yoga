@@ -35,12 +35,16 @@ import java.util.List;
 
 import apps.hillavas.com.yoga.R;
 import apps.hillavas.com.yoga.adapters.SparkView_Adapter;
+import apps.hillavas.com.yoga.data.models.JsonTotalCalloryAndPoints;
 import apps.hillavas.com.yoga.data.models.ResultCalloryHistoryDaily;
 import apps.hillavas.com.yoga.data.models.ResultTotalCalloryAndPoint;
 import apps.hillavas.com.yoga.data.models.ResultUploadFileResponse;
 import apps.hillavas.com.yoga.classes.tools.RecordCalloryMounthly;
 import apps.hillavas.com.yoga.classes.tools.helpers.RetrofitFactory;
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class CheckBalanceActivity extends AppCompatActivity implements View.OnClickListener{
@@ -378,13 +382,32 @@ public class CheckBalanceActivity extends AppCompatActivity implements View.OnCl
         @Override
         protected ResultTotalCalloryAndPoint doInBackground(Integer... params) {
 
-            try {
-                if (RetrofitFactory.getRetrofitClient().getTotalCalloryAndPoint(token).execute().body().isIsSuccessfull())
-                    rc = RetrofitFactory.getRetrofitClient().getTotalCalloryAndPoint(token).execute().body().getResultTotalCalloryAndPoint();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return rc;
+//            try {
+//                if (RetrofitFactory.getRetrofitClient().getTotalCalloryAndPoint(token).execute().body().isIsSuccessfull())
+//                    rc = RetrofitFactory.getRetrofitClient().getTotalCalloryAndPoint(token).execute().body().getResultTotalCalloryAndPoint();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+          //  }
+
+            RetrofitFactory.getRetrofitClient().getTotalCalloryAndPoint(token).enqueue(new Callback<JsonTotalCalloryAndPoints>() {
+                @Override
+                public void onResponse(Call<JsonTotalCalloryAndPoints> call, Response<JsonTotalCalloryAndPoints> response) {
+                    if(response.body().isIsSuccessfull()){
+                        rc=response.body().getResultTotalCalloryAndPoint();
+                    }
+                    else {
+                        Toast.makeText(CheckBalanceActivity.this,"اینجااااااا",Toast.LENGTH_LONG).show();
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<JsonTotalCalloryAndPoints> call, Throwable t) {
+                   Toast.makeText(CheckBalanceActivity.this,"دوباره سعی کنید",Toast.LENGTH_LONG).show();
+                }
+            });
+
+           return rc;
         }
 
         @Override

@@ -75,7 +75,8 @@ public class UnsubscribeActivity extends Activity implements View.OnClickListene
                                         JsonObject object = null;
                                         try {
                                             object = new JsonParser().parse(response.errorBody().string()).getAsJsonObject();
-                                            errorMessage = object.get("error_description").getAsString();
+                                            errorMessage = "دوباره تلاش کنید";
+                                                    //object.get("error_description").getAsString();
                                         } catch (IOException e) {
                                             e.printStackTrace();
                                         }

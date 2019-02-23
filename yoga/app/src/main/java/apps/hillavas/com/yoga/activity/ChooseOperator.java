@@ -95,14 +95,13 @@ public class ChooseOperator extends AppCompatActivity implements View.OnClickLis
 
     }
 
+
+
     @Override
     public void onBackPressed() {
-        Log.e("d", "d");
-        if (fm.getBackStackEntryCount() > 0) {
-            fm.popBackStack();
-        } else {
+
             super.onBackPressed();
-        }
+
     }
 
     @Override

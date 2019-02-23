@@ -10,7 +10,8 @@ import com.batch.android.Config;
 import net.jhoobin.jhub.CharkhoneSdkApp;
 
 import apps.hillavas.com.yoga.R;
-import io.appnex.android.notification.Appnex;
+
+import io.appnex.android.Appnex;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
