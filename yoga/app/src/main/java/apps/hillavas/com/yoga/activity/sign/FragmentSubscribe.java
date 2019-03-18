@@ -43,7 +43,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class FragmentSubscribe extends Fragment implements View.OnClickListener{
+public class FragmentSubscribe extends Fragment implements View.OnClickListener {
 
     Button btnRegister;
     EditText editMobileNumber;
@@ -52,10 +52,9 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener{
     public static final String GUID = "GUID";
     public static final String TRANSACTIONID = "TRANSACTIONID";
     public static final String SUBSCRIBEDUSER = "SubscribedUser";
-    public static final String IS_IRANCELL="IS_IRANCELL";
-    public static final String IS_HAMRAHAVAL="IS_HAMRAHAVAL";
+    public static final String IS_IRANCELL = "IS_IRANCELL";
+    public static final String IS_HAMRAHAVAL = "IS_HAMRAHAVAL";
     SharedPreferences sharedPreferencesHome;
-
 
 
     //Charkhune
@@ -97,7 +96,7 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener{
 
         sharedPreferencesHome = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-        if(sharedPreferencesHome.getBoolean(IS_IRANCELL,true)){
+        if (sharedPreferencesHome.getBoolean(IS_IRANCELL, true)) {
             String base64EncodedPublicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCIHg4cW9avnZYkKOet/k/TSsXngpWXtVpuwvxXhfn3HdrWV47LA28aBrODL1n9+corT+F5nIVa5pd3p2xR99ob8rv3pssYkkBU9Z21d+JVx4tLxTXetazZCaL8Uux3sJTHNHC6Yuab/SXtZLK/2ArYRKbmbaNBo8CJgHXTNMRSBwIDAQAB";
 
             // Create the helper, passing it our context and the public key to verify signatures with
@@ -125,14 +124,15 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener{
                 }
             });
             editMobileNumber.setHint("شماره ایرانسل خود را وارد کنید");
-        }else {
+        } else {
             editMobileNumber.setHint("شماره همراه اول خود را وارد کنید");
         }
 
     }
+
     @Override
     public void onAttach(Activity activity) {
-        this.activity= (FragmentActivity) activity;
+        this.activity = (FragmentActivity) activity;
         super.onAttach(activity);
 
     }
@@ -155,12 +155,11 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener{
                 }
 
 
-
-                if(sharedPreferencesHome.getBoolean(IS_IRANCELL,true)){
+                if (sharedPreferencesHome.getBoolean(IS_IRANCELL, true)) {
                     Intent fillInIntent = new Intent();
 
 //                checkAccount(phoneNumber); //todo check user subscribe
-                    fillInIntent.putExtra("msisdn",  String.valueOf(editMobileNumber.getText()));
+                    fillInIntent.putExtra("msisdn", String.valueOf(editMobileNumber.getText()));
                     mHelper.setFillInIntent(fillInIntent);
 
                     payload = "";
@@ -175,13 +174,12 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener{
                     }
 
 
-
 //                    new FragmentHelper(new FragmentSubscribeConfirm(),
 //                            R.id.frameLayout_base,
 //                            getActivity().getSupportFragmentManager()
 //                    ).replace(true);
 
-                }else {
+                } else {
 
                     SubscribeModel subscribeModel = new SubscribeModel();
                     subscribeModel.setMobileNumber(String.valueOf(editMobileNumber.getText()));
@@ -243,6 +241,7 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener{
 
         }
     }
+
     /**
      * Verifies the developer payload of a purchase.
      */
@@ -272,6 +271,7 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener{
             Log.d(TAG, "onActivityResult handled by IABUtil.");
         }
     }
+
     // Callback for when a purchase is finished
     private IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
         public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
@@ -291,10 +291,10 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener{
                 return;
             }
 
-            Log.d(TAG, "Purchase successful."+purchase.getToken());
+            Log.d(TAG, "Purchase successful." + purchase.getToken());
 //            //  CharkhunePurchaseToken
-            purchaseToken= purchase.getToken();
-            sharedPreferencesHome.edit().putString("PurchaseToken",purchaseToken).commit();
+            purchaseToken = purchase.getToken();
+            sharedPreferencesHome.edit().putString("PurchaseToken", purchaseToken).commit();
 
             if (purchase.getSku().equals(SKU_PREMIUM)) {
                 // bought the premium upgrade!
@@ -304,7 +304,6 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener{
 
 
                 getIrancellToken();
-
 
 
             }
@@ -319,7 +318,6 @@ public class FragmentSubscribe extends Fragment implements View.OnClickListener{
 
 
                 if (response.isSuccessful()) {
-
 
 
                     sharedPreferencesHome.edit().putString(GUID, response.body().getResult()).commit();
