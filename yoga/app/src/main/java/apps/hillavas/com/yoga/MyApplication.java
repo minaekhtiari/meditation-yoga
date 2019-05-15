@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 
+import com.batch.android.Batch;
+import com.batch.android.BatchActivityLifecycleHelper;
 import com.batch.android.Config;
 
 import net.jhoobin.jhub.CharkhoneSdkApp;
@@ -28,8 +30,8 @@ public class MyApplication extends Application{
         sharedPreferencesHome = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Appnex.init(this);
 
-//        Batch.setConfig(new Config("5BC1EBED7564F04C977ABF69B16F79"));
-//        registerActivityLifecycleCallbacks(new BatchActivityLifecycleHelper());
+        Batch.setConfig(new Config("DEV5CC989AD5299BB4DF8C71B9D1F5"));
+        registerActivityLifecycleCallbacks(new BatchActivityLifecycleHelper());
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/iransans.ttf")

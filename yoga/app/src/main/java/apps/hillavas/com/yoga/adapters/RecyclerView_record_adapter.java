@@ -1,5 +1,6 @@
 package apps.hillavas.com.yoga.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -16,11 +17,13 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import apps.hillavas.com.yoga.R;
+import apps.hillavas.com.yoga.activity.VideoDetailActivity;
 import apps.hillavas.com.yoga.data.models.AttachedFile;
 import apps.hillavas.com.yoga.data.models.CaloryAdd;
 import apps.hillavas.com.yoga.data.models.Content;
@@ -31,6 +34,9 @@ import apps.hillavas.com.yoga.data.models.ResultJsonForBuy;
 import apps.hillavas.com.yoga.data.models.ResultJsonInteger;
 import apps.hillavas.com.yoga.classes.tools.helpers.RetrofitFactory;
 import apps.hillavas.com.yoga.classes.tools.helpers.RetrofitFactoryForFileManager;
+
+import hb.xvideoplayer.MxVideoPlayer;
+import hb.xvideoplayer.MxVideoPlayerWidget;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -44,19 +50,21 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
 
     private static final String CONTENT = "CONTENT";
     private static final String TOKEN = "TOKEN";
-
+    public String VideoViewUrl;
     Context context;
     List<Record> records = new ArrayList<>();
     LayoutInflater inflater;
     String token;
     boolean free = false;
     int contentId = 0;
-    ImageView imageViewLock,play2;
+    ImageView imageViewLock, play2;
     TextView tvPrice;
     int adapterPosition = 0;
 
+    public   String title,desc,img,score,callories;
 
-    public RecyclerView_record_adapter(Context context, List<Record> records , String token) {
+
+    public RecyclerView_record_adapter(Context context, List<Record> records, String token) {
         this.context = context;
         this.records = records;
         inflater = LayoutInflater.from(context);
@@ -65,14 +73,15 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
 
     @Override
     public MVHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.card_content_for_vertical_list , parent , false);
+        View view = inflater.inflate(R.layout.card_content_for_vertical_list, parent, false);
         return new MVHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(MVHolder holder, int position) {
         Record record = records.get(position);
-        holder.setData(record,position);
+        holder.setData(record, position);
     }
 
 
@@ -93,7 +102,7 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
         return records.size();
     }
 
-    class MVHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class MVHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView imageView;
         TextView tvTitr;
@@ -101,8 +110,7 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
         TextView tvScore;
         TextView tvCallories;
         TextView tvTime;
-    ImageView ivTopBorder;
-
+        ImageView ivTopBorder;
 
 
         public MVHolder(View itemView) {
@@ -117,7 +125,8 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
             tvTime = (TextView) itemView.findViewById(R.id.card_content_textTime);
             tvPrice = (TextView) itemView.findViewById(R.id.card_content_textPrice);
             ivTopBorder = (ImageView) itemView.findViewById(R.id.card_content_vertical_imageTopBorder);
-            play2=imageView.findViewById(R.id.play2);
+            play2 = imageView.findViewById(R.id.play2);
+
             ivTopBorder.setAlpha(0.8f);
             tvDescription.setTypeface(typeface);
             tvTitr.setTypeface(typeface);
@@ -126,28 +135,34 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
             tvTime.setTypeface(typeface);
             tvPrice.setTypeface(typeface);
             imageView.setOnClickListener(this);
+
+
         }
 
-        private void setData(Record record , int position){
-            if(record.getThumbnailImageId() != null && record.getThumbnailImageId().length() > 0){
-                RetrofitFactoryForFileManager.getRetrofitClient().getFiles(record.getThumbnailImageId() , 1).enqueue(new Callback<FileGiver>() {
+        private void setData(Record record, int position) {
+            if (record.getThumbnailImageId() != null && record.getThumbnailImageId().length() > 0) {
+                RetrofitFactoryForFileManager.getRetrofitClient()
+                        .getFiles(record.getThumbnailImageId(), 1).enqueue(new Callback<FileGiver>() {
                     @Override
                     public void onResponse(Call<FileGiver> call, Response<FileGiver> response) {
 
-                        if(response.body() != null && response.body().isIsSuccessfull()){
+                        if (response.body() != null && response.body().isIsSuccessfull()) {
                             FileResult result = response.body().getFileResult();
-                            if(result  != null){
+                            if (result != null) {
                                 try {
+                                    img=result.getFileAddress();
                                     Glide.with(context)
                                             .load(result.getFileAddress())
                                             .asBitmap()
                                             .override(424, 240)
                                             .centerCrop()
                                             .into(imageView);
-                                }catch (Exception e){}
+                                } catch (Exception e) {
+                                }
                             }
                         }
                     }
+
                     @Override
                     public void onFailure(Call<FileGiver> call, Throwable t) {
 
@@ -157,17 +172,22 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
 
             String description = null;
             description = Html.fromHtml(record.getBody()).toString();
+            title=record.getSubject();
+            score=record.getPoint()+"";
+            callories=record.getCalory() + "";
+            desc=Html.fromHtml(record.getBody()).toString();;
             tvTitr.setText(record.getSubject());
             tvDescription.setText(description);
-            tvPrice.setText(record.getPrice()+"");
-            tvScore.setText(record.getPoint()+"");
-            tvCallories.setText(record.getCalory()+"");
+            tvPrice.setText(record.getPrice() + "");
+            tvScore.setText(record.getPoint() + "");
+            tvCallories.setText(record.getCalory() + "");
+
             adapterPosition = position;
-            if(record.isIsFree()){
+            if (record.isIsFree()) {
                 free = true;
 //                imageViewLock.setVisibility(View.INVISIBLE);
                 tvPrice.setText(R.string.hint_bouth);
-            }else {
+            } else {
 //                imageViewLock.setVisibility(View.VISIBLE);
             }
 
@@ -175,11 +195,12 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
 
         @Override
         public void onClick(View v) {
-                if(v.getId() == R.id.card_content_vertical_image){
+            if (v.getId() == R.id.card_content_vertical_image) {
 //                    if(records.get(getAdapterPosition()).isIsFree()) {
-                        contentId = records.get(getAdapterPosition()).getContentId();
-                        new TaskLoadContent().execute(contentId);
-//                    }else {
+                contentId = records.get(getAdapterPosition()).getContentId();
+                new TaskLoadContent().execute(contentId);
+
+
 //                        final Dialog dialog = new Dialog(context);
 //                        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 //                        dialog.setContentView(R.layout.dialog_buy);
@@ -204,9 +225,9 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
 //                        dialog.show();
 //
 //                    }
-                }
             }
         }
+    }
 
 
     class TaskLoadContent extends AsyncTask<Integer, Void, List<AttachedFile>> {
@@ -228,7 +249,7 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
         @Override
         protected void onPostExecute(List<AttachedFile> attachedFiles) {
             super.onPostExecute(attachedFiles);
-            if(attachedFiles != null && attachedFiles.size() > 0) {
+            if (attachedFiles != null && attachedFiles.size() > 0) {
                 for (AttachedFile attachedFile : attachedFiles) {
                     if (attachedFile.getFileType() == 5) {
                         String videoUrlStr = attachedFile.getFileID();
@@ -238,26 +259,36 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
                                 @Override
                                 public void onResponse(Call<FileGiver> call, Response<FileGiver> response) {
                                     if (response.body().isIsSuccessfull()) {
+
                                         String videoUrl = null;
                                         FileResult result = response.body().getFileResult();
                                         if (result != null) {
+
                                             videoUrl = result.getFileAddress();
                                             if (videoUrl.length() > 0) {
                                                 if (videoUrl.length() > 0) {
-                                                    Intent intentVideo = new Intent(Intent.ACTION_VIEW);
-                                                    intentVideo.setDataAndType(Uri.parse(videoUrl), "video/*");
-                                                    intentVideo.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                                    context.startActivity(intentVideo);
+                                                    Intent intent = new Intent(context, VideoDetailActivity.class);
+                                                    intent.putExtra("videoUrl", videoUrl);
+                                                    intent.putExtra("title",title);
+                                                    intent.putExtra("desc",desc);
+                                                    intent.putExtra("img",img);
+                                                    intent.putExtra("score",score);
+                                                    intent.putExtra("callories",callories);
+                                                    context.startActivity(intent);
+//                                                    Intent intentVideo = new Intent(Intent.ACTION_VIEW);
+//                                                    intentVideo.setDataAndType(Uri.parse(videoUrl), "video/*");
+//                                                    intentVideo.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                                                    context.startActivity(intentVideo);
                                                     new TaskAddToCaloryHistory().execute(contentId);
-                                                }else{
+                                                } else {
                                                     play2.setVisibility(View.INVISIBLE);
                                                 }
                                             }
-                                        }else{
-                                            Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                                        } else {
+                                            Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_LONG).show();
                                         }
-                                    }else {
-                                        Toast.makeText(context,response.body().getMessage(),Toast.LENGTH_LONG).show();
+                                    } else {
+                                        Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_LONG).show();
                                     }
                                 }
 
@@ -274,18 +305,18 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
         }
     }
 
-    class TaskBuyAContent extends AsyncTask<Integer, Void,String> {
+    class TaskBuyAContent extends AsyncTask<Integer, Void, String> {
         @Override
         protected String doInBackground(Integer... params) {
             ResultJsonForBuy resultJsonForBuy = null;
             String strMessage = null;
             try {
-                resultJsonForBuy = RetrofitFactory.getRetrofitClient().buy(token,params[0],params[1]).execute().body();
+                resultJsonForBuy = RetrofitFactory.getRetrofitClient().buy(token, params[0], params[1]).execute().body();
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            if(resultJsonForBuy != null) {
+            if (resultJsonForBuy != null) {
                 if (resultJsonForBuy.isIsSuccessfull()) {
                     if (resultJsonForBuy.isResult())
                         strMessage = "YES";
@@ -300,7 +331,7 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
             super.onPostExecute(str);
             String message = null;
 
-            if(str != null && str.length() > 0) {
+            if (str != null && str.length() > 0) {
                 if (str.equals("YES")) {
                     //yes
 //                    sharedPreferencesHome.edit().putInt(LAST_CATEGORYID_SELECTED , categoryId).commit();
@@ -317,19 +348,19 @@ public class RecyclerView_record_adapter extends RecyclerView.Adapter<RecyclerVi
 //                    imageViewLock.setVisibility(View.VISIBLE);
                     tvPrice.setText(records.get(adapterPosition).getPrice() + "");
                 }
-            }else
+            } else
                 message = "error";
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         }
     }
 
-    class TaskAddToCaloryHistory extends AsyncTask<Integer, Void,Void> {
+    class TaskAddToCaloryHistory extends AsyncTask<Integer, Void, Void> {
         @Override
         protected Void doInBackground(Integer... params) {
             ResultJsonInteger resultJsonInteger = null;
             String strMessage = null;
             try {
-                resultJsonInteger = RetrofitFactory.getRetrofitClient().addToCaloryHistory(new CaloryAdd(token , params[0])).execute().body();
+                resultJsonInteger = RetrofitFactory.getRetrofitClient().addToCaloryHistory(new CaloryAdd(token, params[0])).execute().body();
             } catch (IOException e) {
                 e.printStackTrace();
             }

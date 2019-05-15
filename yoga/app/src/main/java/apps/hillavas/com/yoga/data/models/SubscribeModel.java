@@ -20,7 +20,7 @@ public class SubscribeModel {
 
     public SubscribeModel() {
 
-        Channel = "A-Hillavas";
+        Channel = "A-hillaVas";
         servicecId="11";
     }
 

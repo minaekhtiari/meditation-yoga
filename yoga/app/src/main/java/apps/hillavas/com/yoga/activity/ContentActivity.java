@@ -72,7 +72,7 @@ public class ContentActivity extends AppCompatActivity {
             }
         }
         tvNameProfileInfo = (TextView) findViewById(R.id.fragment_personalInfo_text_name);
-        tvWeightProfileInfo = (TextView) findViewById(R.id.fragment_personalInfo_text_weight);
+     //   tvWeightProfileInfo = (TextView) findViewById(R.id.fragment_personalInfo_text_weight);
         ivProfilePicture = (CircleImageView) findViewById(R.id.profile_image);
 
         relativeToolbarSetting = (RelativeLayout) findViewById(R.id.toolbar_all_imageMenu_relativeSetting);

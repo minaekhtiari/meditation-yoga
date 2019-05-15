@@ -125,13 +125,13 @@ public interface IRetrofit {
     @GET("mobileApi/content/GetIsLikedMe")
     Call<ResultJson> getisLikedOrNot(    @Query("token") String token,
                                          @Query("recordId") int recordId);
-
+    @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("MobileApi/Member/SignUp")
-    Call<ResultJsonMemberSignUp> memberSignUp(@Query("mobileNumber")  String appType );
+    Call<ResultJsonMemberSignUp> memberSignUp(@Query("mobileNumber")  String appType);
 
 
     @POST("MobileApi/Member/IrancellSignUp")
-    Call<ResultJsonIrancellMemberSignUp> memberIrancellSignUp(@Query("MobileNumber")  String appType );
+    Call<ResultJsonIrancellMemberSignUp> memberIrancellSignUp(@Query("mobileNumber")  String appType );
 
     @POST("Member/IrancellSignOut")
     Call<UnsubIrancellResult> unregister(@Body UnsubscribeMemberModel unsubscribeMemberModel);

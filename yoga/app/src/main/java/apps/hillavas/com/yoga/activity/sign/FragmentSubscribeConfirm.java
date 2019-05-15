@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import apps.hillavas.com.yoga.R;
 import apps.hillavas.com.yoga.activity.FirstContentActivity;
+import apps.hillavas.com.yoga.classes.tools.helpers.MoBileNumberModel;
 import apps.hillavas.com.yoga.classes.tools.helpers.RetrofitFactory;
 import apps.hillavas.com.yoga.data.models.OtpResultJson;
 import apps.hillavas.com.yoga.data.models.ResultJson;
@@ -128,7 +129,7 @@ public class FragmentSubscribeConfirm extends Fragment {
                                     }
                                     //todo
 
-                                    memberSignUpFotReciveToken(response.body().getResult());
+                                    memberSignUpFotReciveToken(String.valueOf(response.body().getResult()));
                                 }
 
                             }
@@ -161,12 +162,15 @@ public class FragmentSubscribeConfirm extends Fragment {
 
 
     void memberSignUpFotReciveToken(String phoneNumber) {
+//        MoBileNumberModel moBileNumberModel=new MoBileNumberModel();
+//
+//        moBileNumberModel.setMobileNumber(String.valueOf(editMobileNumber.getText()));
 
         RetrofitFactory.getRetrofitClient().memberSignUp(phoneNumber).enqueue(new Callback<ResultJsonMemberSignUp>() {
             @Override
             public void onResponse(Call<ResultJsonMemberSignUp> call, Response<ResultJsonMemberSignUp> response) {
 
-                btnConfirm.setEnabled(true);
+              //  btnConfirm.setEnabled(true);
 
                 if (response.isSuccessful()) {
 
@@ -177,7 +181,7 @@ public class FragmentSubscribeConfirm extends Fragment {
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getActivity(), "خطا در دریافت توکن", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "خطا در دریافت توکن1111111111111", Toast.LENGTH_SHORT).show();
 
                     FragmentManager fm = getActivity().getSupportFragmentManager();
                     fm.popBackStack();

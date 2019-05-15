@@ -48,33 +48,33 @@
                     android:layout_marginTop="8dp"
                     >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/weight"
-                        android:layout_toRightOf="@+id/fragment_personalInfo_text_weight"
-                        android:textColor="@color/gray_200"
-                        />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/weight"-->
+                        <!--android:layout_toRightOf="@+id/fragment_personalInfo_text_weight"-->
+                        <!--android:textColor="@color/gray_200"-->
+                        <!--/>-->
 
-                    <TextView
-                        android:id="@+id/fragment_personalInfo_text_weight"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerInParent="true"
-                        android:textSize="14sp"
-                        android:textColor="@color/white"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginRight="4dp"
-                        />
+                    <!--<TextView-->
+                        <!--android:id="@+id/fragment_personalInfo_text_weight"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_centerInParent="true"-->
+                        <!--android:textSize="14sp"-->
+                        <!--android:textColor="@color/white"-->
+                        <!--android:layout_marginLeft="4dp"-->
+                        <!--android:layout_marginRight="4dp"-->
+                        <!--/>-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/km"
-                        android:layout_toLeftOf="@+id/fragment_personalInfo_text_weight"
-                        android:textColor="@color/gray_200"
-                        />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/km"-->
+                        <!--android:layout_toLeftOf="@+id/fragment_personalInfo_text_weight"-->
+                        <!--android:textColor="@color/gray_200"-->
+                        <!--/>-->
 
                 </RelativeLayout>
                 <TextView
@@ -179,13 +179,35 @@
                 android:background="@drawable/gradiant"
                 android:layout_below="@+id/fragment_personalInfo_text_app"
                 />
+
+            <TextView
+                android:id="@+id/fragment_personalInfo_BMI"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="12sp"
+                android:layout_below="@+id/line5"
+                android:textColor="@color/white"
+                android:text="محاسبه شاخص توده بدنی"
+                android:gravity="center|start"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                />
+
+            <ImageView
+                android:id="@+id/line6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gradiant"
+                android:layout_below="@+id/fragment_personalInfo_BMI"
+                />
+
             <TextView
 
                 android:id="@+id/fragment_personalInfo_sign_out_irancell"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textSize="12sp"
-                android:layout_below="@+id/line5"
+                android:layout_below="@+id/line6"
                 android:textColor="@color/white"
                 android:text="لغو اشتراک"
                 android:gravity="center|start"
@@ -194,7 +216,7 @@
                 />
 
             <ImageView
-                android:id="@+id/line6"
+                android:id="@+id/line7"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@drawable/gradiant"
@@ -207,17 +229,16 @@
                 android:textSize="12sp"
               android:id="@+id/support_tel"
                  android:textColor="@color/white"
-
                 android:gravity="center|start"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:layout_below="@+id/line6"
+                android:layout_below="@+id/line7"
 
                 android:text="شماره پشتیبانی : 02196998888"
              />
             <ImageView
 
-                android:id="@+id/line7"
+                android:id="@+id/line8"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@drawable/gradiant"
@@ -228,7 +249,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textSize="12sp"
-                android:layout_below="@+id/line7"
+                android:layout_below="@+id/line8"
                 android:textColor="@color/white"
                 android:text="خروج"
                 android:gravity="center|start"

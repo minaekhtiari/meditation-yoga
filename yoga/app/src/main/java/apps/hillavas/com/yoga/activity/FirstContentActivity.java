@@ -6,12 +6,14 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
+
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -67,14 +69,14 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
     ImageView ivToolbarBtnPerson;
 
     TextView tvName;
-    TextView tvWeight;
+   // TextView tvWeight;
 
     FrameLayout frameBase1,frameBase2;
     TextView tvNavBtnHome;
     TextView tvNavBtnAmar;
     TextView tvNavBtnAsli;
     TextView tvNavBtnApp;
-    TextView tvNavBtnExit, navUnsubscribeTxt,supportTel;
+    TextView tvNavBtnExit, navUnsubscribeTxt,supportTel,BMI;
     String purchasToken;
 
 
@@ -92,7 +94,8 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
         name = sharedPreferencesHome.getString(NAME, "");
         weight = sharedPreferencesHome.getInt(WEIGHT, 0);
         tvName = (TextView) findViewById(R.id.fragment_personalInfo_text_name);
-        tvWeight = (TextView) findViewById(R.id.fragment_personalInfo_text_weight);
+       // tvWeight = (TextView) findViewById(R.id.fragment_personalInfo_text_weight);
+        BMI = (TextView) findViewById(R.id.fragment_personalInfo_BMI);
         ivProfilePicture = (ImageView) findViewById(R.id.profile_image);
         tvNavBtnHome = (TextView) findViewById(R.id.fragment_personalInfo_text_home);
         tvNavBtnAmar = (TextView) findViewById(R.id.fragment_personalInfo_text_amar);
@@ -121,6 +124,7 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
         tvNavBtnExit.setOnClickListener(this);
         ivProfilePicture.setOnClickListener(this);
         navUnsubscribeTxt.setOnClickListener(this);
+        BMI.setOnClickListener(this);
 
 
         ((RelativeLayout)findViewById(R.id.fragment_personalInfo_relativeHeader)).setOnClickListener(new View.OnClickListener() {
@@ -154,7 +158,7 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
             }
         }
         tvName.setText(name);
-        tvWeight.setText(weight+"");
+//        tvWeight.setText(weight+"");
         title = getIntent().getStringExtra("MENU_ITEM");
         id = getIntent().getIntExtra("MENU_ID",0);
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -189,7 +193,7 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 tvName.setText(sharedPreferencesHome.getString(NAME , ""));
-                tvWeight.setText(sharedPreferencesHome.getInt(WEIGHT , 0)+"");
+            //    tvWeight.setText(sharedPreferencesHome.getInt(WEIGHT , 0)+"");
 
                 if(sharedPreferencesHome.getString(PICTURE_PROFILE_ADDRESS , "").length() > 0){
                     Glide.with(getApplicationContext())
@@ -266,6 +270,15 @@ public class FirstContentActivity extends AppCompatActivity implements View.OnCl
 
             case R.id.fragment_personalInfo_sign_out_irancell:{
                 Intent intent = new Intent(this,UnsubscribeActivity.class);
+                startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.END);
+                break;
+
+
+            }
+
+            case R.id.fragment_personalInfo_BMI:{
+                Intent intent=new Intent(this,BMIActivity.class);
                 startActivity(intent);
                 drawerLayout.closeDrawer(GravityCompat.END);
                 break;

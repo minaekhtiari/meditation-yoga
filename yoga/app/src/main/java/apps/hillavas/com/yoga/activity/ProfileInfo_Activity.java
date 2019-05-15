@@ -93,7 +93,7 @@ public class ProfileInfo_Activity extends AppCompatActivity implements View.OnCl
         tvFemale = (TextView) findViewById(R.id.fragment_register_text_female);
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         editName = (EditText) findViewById(R.id.fragment_profile_insertion_editName);
-        editWeight = (EditText) findViewById(R.id.fragment_profile_insertion_editWeight);
+       // editWeight = (EditText) findViewById(R.id.fragment_profile_insertion_editWeight);
         btnAddAcount = (Button) findViewById(R.id.fragment_register_Btn_register);
     //    profileImage = (CircleImageView) findViewById(R.id.profile_image);
 
@@ -108,30 +108,30 @@ public class ProfileInfo_Activity extends AppCompatActivity implements View.OnCl
         btnAddAcount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String regexStr = "^[0-9]*$";
-                if(!editWeight.getText().toString().trim().matches(regexStr))
-                    return;
-
-                if(editName.length()<=0) {
-                    Toast.makeText(ProfileInfo_Activity.this, R.string.errorNameOrFamily, Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(editWeight.length()<=0) {
-                    Toast.makeText(ProfileInfo_Activity.this, "لطفا وزن خود را وارد نمائید", Toast.LENGTH_SHORT).show();
-                    return;
-                }else
-                    weight = Integer.valueOf(editWeight.getText().toString());
-                if(weight < 20) {
-                    Toast.makeText(ProfileInfo_Activity.this, "لطفا وزن خود را صحیح وارد نمائید", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                String regexStr = "^[0-9]*$";
+//                if(!editWeight.getText().toString().trim().matches(regexStr))
+//                    return;
+//
+//                if(editName.length()<=0) {
+//                    Toast.makeText(ProfileInfo_Activity.this, R.string.errorNameOrFamily, Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if(editWeight.length()<=0) {
+//                    Toast.makeText(ProfileInfo_Activity.this, "لطفا وزن خود را وارد نمائید", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }else
+//                    weight = Integer.valueOf(editWeight.getText().toString());
+//                if(weight < 20) {
+//                    Toast.makeText(ProfileInfo_Activity.this, "لطفا وزن خود را صحیح وارد نمائید", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
 
                 final Profile profile = new Profile();
                 profile.setToken(token);
                 profile.setSex(sex);
                 profile.setFirstName(editName.getText().toString());
                 profile.setLastName(editName.getText().toString());
-                profile.setWeight(Integer.valueOf(editWeight.getText().toString()));
+              //  profile.setWeight(Integer.valueOf(editWeight.getText().toString()));
 
                 btnAddAcount.setEnabled(false);
 //                if(sharedPreferencesHome.getBoolean(IS_HAMRAHAVAL,true)){

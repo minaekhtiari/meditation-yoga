@@ -43,23 +43,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/gray_200"/>
-            <EditText
-                android:id="@+id/fragment_profile_insertion_editWeight"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:hint="@string/hint_weight_kilo"
-                android:inputType="number"
-                android:maxLength="3"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:paddingTop="8dp"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:background="@color/white"
-                android:layout_below="@+id/fragment_profile_insertion_editName"
-                >
-            </EditText>
+            <!--<EditText-->
+                <!--android:id="@+id/fragment_profile_insertion_editWeight"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:gravity="center"-->
+                <!--android:hint="@string/hint_weight_kilo"-->
+                <!--android:inputType="number"-->
+                <!--android:maxLength="3"-->
+                <!--android:paddingLeft="8dp"-->
+                <!--android:paddingRight="8dp"-->
+                <!--android:paddingTop="8dp"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="14sp"-->
+                <!--android:background="@color/white"-->
+                <!--android:layout_below="@+id/fragment_profile_insertion_editName"-->
+                <!--&gt;-->
+            <!--</EditText>-->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"

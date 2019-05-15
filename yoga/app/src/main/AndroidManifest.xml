@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="apps.hillavas.com.yoga">
 
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />-->
-    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
-    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--<uses-permission android:name="android.permission.CALL_PHONE" />-->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- <uses-permission android:name="android.permission.CALL_PHONE" /> -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".MyApplication"
@@ -18,11 +17,11 @@
         android:label="@string/titr"
         android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.ChooseOperator">
-
-
-        </activity>
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity android:name=".activity.VideoDetailActivity"></activity>
+        <activity android:name=".activity.BMIActivity" />
+        <activity android:name=".activity.ChooseOperator" />
         <activity
             android:name=".activity.HOME"
             android:screenOrientation="portrait"
@@ -79,8 +78,8 @@
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".activity.Yoga_contents_all_for_categoryid" />
         <activity android:name=".activity.TrainingActivity" />
-        <activity android:name=".activity.IntroActivity"/>
-        <activity android:name=".activity.UnsubscribeActivity"></activity>
+        <activity android:name=".activity.IntroActivity" />
+        <activity android:name=".activity.UnsubscribeActivity" />
     </application>
 
 </manifest>

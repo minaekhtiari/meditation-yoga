@@ -1,39 +1,37 @@
 {
   "project_info": {
-    "project_number": "38117559926",
-    "firebase_url": "https://apps-campaign.firebaseio.com",
-    "project_id": "apps-campaign",
-    "storage_bucket": "apps-campaign.appspot.com"
+    "project_number": "200336014593",
+    "firebase_url": "https://yogaapp-71a83.firebaseio.com",
+    "project_id": "yogaapp-71a83",
+    "storage_bucket": "yogaapp-71a83.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:38117559926:android:eb1269f8402f3759",
+        "mobilesdk_app_id": "1:200336014593:android:385abe0eb257e04b",
         "android_client_info": {
           "package_name": "apps.hillavas.com.yoga"
         }
       },
       "oauth_client": [
         {
-          "client_id": "38117559926-kv7bioigcjpd8bor0l5495ec2sm2gl7j.apps.googleusercontent.com",
+          "client_id": "200336014593-gak8qdl4d1agav5cvtfcls814lpa9pul.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyChezeL0190uUOdH8XK8fPgtRnZmaA-Ol8"
+          "current_key": "AIzaSyA4Tb6B08ydZ2PNjM6e6zdjFwjHPUpNh-s"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "200336014593-gak8qdl4d1agav5cvtfcls814lpa9pul.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
