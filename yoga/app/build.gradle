@@ -6,8 +6,8 @@ android {
     defaultConfig {
         applicationId "apps.hillavas.com.yoga"
         minSdkVersion 17
-        targetSdkVersion 21
-        versionCode 8
+        targetSdkVersion 26
+        versionCode 10
         versionName "nf.9.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
