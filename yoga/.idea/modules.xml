@@ -4,9 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/appnex-v2.0.6/appnex-v2.0.6.iml" filepath="$PROJECT_DIR$/appnex-v2.0.6/appnex-v2.0.6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appnex-v3.0.0/appnex-v3.0.0.iml" filepath="$PROJECT_DIR$/appnex-v3.0.0/appnex-v3.0.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/filemanaging/filemanaging.iml" filepath="$PROJECT_DIR$/filemanaging/filemanaging.iml" />
-      <module fileurl="file://$PROJECT_DIR$/inAppPurchase/inAppPurchase.iml" filepath="$PROJECT_DIR$/inAppPurchase/inAppPurchase.iml" />
-      <module fileurl="file://$PROJECT_DIR$/inAppSDK/inAppSDK.iml" filepath="$PROJECT_DIR$/inAppSDK/inAppSDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/messaging/messaging.iml" filepath="$PROJECT_DIR$/messaging/messaging.iml" />
       <module fileurl="file://$PROJECT_DIR$/yoga.iml" filepath="$PROJECT_DIR$/yoga.iml" />
     </modules>

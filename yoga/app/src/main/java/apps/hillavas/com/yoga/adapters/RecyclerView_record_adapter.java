@@ -35,8 +35,7 @@ import apps.hillavas.com.yoga.data.models.ResultJsonInteger;
 import apps.hillavas.com.yoga.classes.tools.helpers.RetrofitFactory;
 import apps.hillavas.com.yoga.classes.tools.helpers.RetrofitFactoryForFileManager;
 
-import hb.xvideoplayer.MxVideoPlayer;
-import hb.xvideoplayer.MxVideoPlayerWidget;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
