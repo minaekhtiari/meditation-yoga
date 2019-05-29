@@ -2,6 +2,7 @@ package apps.hillavas.com.yoga.activity;
 
 import android.content.Context;
 import android.media.Image;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,19 +10,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.devbrackets.android.exomedia.listener.OnPreparedListener;
+import com.devbrackets.android.exomedia.ui.widget.VideoView;
 
 import apps.hillavas.com.yoga.R;
-import hb.xvideoplayer.MxVideoPlayer;
-import hb.xvideoplayer.MxVideoPlayerWidget;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class VideoDetailActivity extends AppCompatActivity {
+public class VideoDetailActivity extends AppCompatActivity implements OnPreparedListener {
 
 
     TextView txtTitle,txtDesc,textScore,textCallory;
     ImageView videoImage,imgPlay;
     String urlString,title,desc,img,score,callories;
-    MxVideoPlayerWidget videoPlayerWidget;
+  VideoView videoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,8 @@ public class VideoDetailActivity extends AppCompatActivity {
          img=extras.getString("img");
          score=extras.getString("score");
          callories=extras.getString("callories");
-        videoPlayerWidget = (MxVideoPlayerWidget) findViewById(R.id.mpw_video_player);
+        videoView = findViewById(R.id.mpw_video_player);
+        videoView.setOnPreparedListener(VideoDetailActivity.this);
         txtTitle=findViewById(R.id.txt_title);
         txtDesc=findViewById(R.id.txt_desc);
         videoImage=findViewById(R.id.video_img);
@@ -53,7 +56,7 @@ public class VideoDetailActivity extends AppCompatActivity {
                 .override(424, 240)
                 .centerCrop()
                 .into(videoImage);
-        MxVideoPlayerWidget.startFullscreen(this, MxVideoPlayerWidget.class, urlString, "");
+        //MxVideoPlayerWidget.startFullscreen(this, MxVideoPlayerWidget.class, urlString, "");
            imgPlay.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
@@ -61,9 +64,9 @@ public class VideoDetailActivity extends AppCompatActivity {
 
                    imgPlay.setVisibility(View.INVISIBLE);
                     videoImage.setVisibility(View.INVISIBLE);
-                   videoPlayerWidget.setVisibility(View.VISIBLE);
+                   videoView.setVisibility(View.VISIBLE);
 
-                   videoPlayerWidget.startPlay(urlString, MxVideoPlayer.SCREEN_LAYOUT_NORMAL, "");
+                   videoView.setVideoURI(Uri.parse(urlString));
                }
            });
 
@@ -76,13 +79,18 @@ public class VideoDetailActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        MxVideoPlayer.releaseAllVideos();
+      //  MxVideoPlayer.releaseAllVideos();
     }
 
     @Override
     public void onBackPressed() {
-        if (MxVideoPlayer.backPress()) {
-            return;
-        }
+//        if (MxVideoPlayer.backPress()) {
+//            return;
+//        }
         super.onBackPressed();}
+
+    @Override
+    public void onPrepared() {
+        videoView.start();
+    }
 }

@@ -33,6 +33,10 @@ android {
             abortOnError false
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 repositories {
@@ -70,8 +74,8 @@ dependencies {
     implementation project(':appnex-v2.0.6')
     implementation project(':inAppPurchase')
     implementation project(':inAppSDK')
-    implementation 'com.henryblue.mxvideoplayer:xvideoplayer:1.2.1'
-
+   // implementation 'com.henryblue.mxvideoplayer:xvideoplayer:1.2.1'
+    implementation 'com.devbrackets.android:exomedia:4.3.0'
 
 }
 apply plugin: 'com.google.gms.google-services'
