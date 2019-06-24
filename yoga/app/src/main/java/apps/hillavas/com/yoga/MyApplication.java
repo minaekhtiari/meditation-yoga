@@ -9,11 +9,10 @@ import com.batch.android.Batch;
 import com.batch.android.BatchActivityLifecycleHelper;
 import com.batch.android.Config;
 
+import net.jhoobin.amaroidsdk.Amaroid;
 import net.jhoobin.jhub.CharkhoneSdkApp;
 
-import apps.hillavas.com.yoga.R;
 
-import io.appnex.android.Appnex;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
@@ -28,7 +27,7 @@ public class MyApplication extends Application{
     public void onCreate() {
         super.onCreate();
         sharedPreferencesHome = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        Appnex.init(this);
+       // Appnex.init(this);
 
         Batch.setConfig(new Config("DEV5CC989AD5299BB4DF8C71B9D1F5"));
         registerActivityLifecycleCallbacks(new BatchActivityLifecycleHelper());
@@ -41,7 +40,7 @@ public class MyApplication extends Application{
 
            CharkhoneSdkApp.initSdk(getApplicationContext(), getSecrets(),true);
 
-
+        Amaroid.getInstance().submitEventPageView(this,"MyApplication");
 
 
 

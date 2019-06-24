@@ -1,1 +1,1 @@
-include ':app', ':messaging', ':filemanaging', ':appnex-v2.0.6', ':appnex-v3.0.0'
+include ':app', ':messaging', ':filemanaging', ':appnex-v2.0.6'

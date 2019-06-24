@@ -18,6 +18,32 @@ public class SubscribeModel {
     @Expose
     private String servicecId;
 
+
+    @SerializedName("AppName")
+    @Expose
+    private String AppName;
+
+    @SerializedName("AppVersion")
+    @Expose
+    private String AppVersion;
+
+    @SerializedName("DeviceManufacture")
+    @Expose
+    private String DeviceManufacture;
+
+    @SerializedName("DeviceModel")
+    @Expose
+    private String DeviceModel;
+
+    @SerializedName("OsVersion")
+    @Expose
+    private String OsVersion;
+
+
+    @SerializedName("Os")
+    @Expose
+    private String Os;
+
     public SubscribeModel() {
 
         Channel = "A-HillaVas";
@@ -43,5 +69,55 @@ public class SubscribeModel {
 
     public void setChannel(String channel) {
         Channel = channel;
+    }
+
+
+    public void setAppName(String appName) {
+        AppName = appName;
+    }
+
+    public String getAppName() {
+        return AppName;
+    }
+
+    public void setAppVersion(String appVersion) {
+        AppVersion = appVersion;
+    }
+
+    public String getAppVersion() {
+        return AppVersion;
+    }
+
+    public void setDeviceManufacture(String deviceManufacture) {
+        DeviceManufacture = deviceManufacture;
+    }
+
+    public String getDeviceManufacture() {
+        return DeviceManufacture;
+    }
+
+    public void setDeviceModel(String deviceModel) {
+        DeviceModel = deviceModel;
+    }
+
+    public String getDeviceModel() {
+        return DeviceModel;
+    }
+
+
+    public void setOs(String os) {
+        Os = os;
+    }
+
+    public String getOs() {
+        return Os;
+    }
+
+    public void setOsVersion(String osVersion) {
+        OsVersion = osVersion;
+    }
+
+    public String getOsVersion() {
+        return OsVersion;
     }
 }
